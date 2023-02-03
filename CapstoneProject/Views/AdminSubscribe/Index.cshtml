@@ -1,0 +1,65 @@
+﻿@using CapstoneProject.Controllers
+@model List<SubClass>
+@{
+    ViewData["Title"] = "Aboneler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="box box-primary">
+    <div class="box-header">
+        <h3 class="box-title">Aboneler</h3>&emsp;
+        <a href="/AdminSubscribe/AddSubscribe/" class="btn btn-success"><i class="fa fa-plus"></i> Yeni Abone Girişi</a>
+    </div>
+    <div class="box-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>AD SOYAD</th>
+                    <th>EMAİL</th>
+                    <th>DURUM</th>
+                    <th>İŞLEMLER</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.ID</td>
+                        <td>@item.NameSurname</td>
+                        <td>@item.Email</td>
+                        <td>
+                            @if(item.Status == true)
+                            {
+                                <a href="/AdminSubscribe/ChangeSubStatFalse/@item.ID" class="btn btn-success"> AKTİF</a>
+                            }
+                            else{
+
+                                <a href="/AdminSubscribe/ChangeSubStatTrue/@item.ID" class="btn btn-danger"> PASİF</a>
+                                
+                                }
+
+                        </td>
+                        <td> 
+                            <a href="/AdminSubscribe/EditSubscribe/@item.ID" class="btn btn-primary">Düzenle</a>
+                            <a href="/AdminSubscribe/DeleteSubscribe/@item.ID" class="btn btn-danger">Sil</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('#example1').DataTable()
+        $('#example2').DataTable({
+            'paging': true,
+            'lengthChange': false,
+            'searching': false,
+            'ordering': true,
+            'info': true,
+            'autoWidth': false
+        })
+    })
+</script>

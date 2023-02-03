@@ -1,50 +1,111 @@
-﻿@using CapstoneProject.Controllers
-@model List<Class1>
+﻿
 @{
-    ViewData["Title"] = "Aboneler";
+    ViewData["Title"] = "Çalışanlar";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="box box-primary">
-    <div class="box-header">
-        <h3 class="box-title">Aboneler</h3>&emsp; 
-        <a href="/EmployeeTest/AddEmployee/" class="btn btn-success"><i class="fa fa-plus"></i> Yeni Abone Girişi</a>
-    </div> 
-    <div class="box-body">
-        <table id="example1" class="table table-bordered table-striped">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Adı Soyadı</th> 
-                    <th>İŞLEMLER</th> 
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>@item.ID</td>
-                        <td>@item.Name</td>
-                        <td>
-                            <a href="/EmployeeTask/DeleteEmployee/@item.ID" class="btn btn-danger">Sil</a> 
-                            <a href="/EmployeeTask/EditEmployee/@item.ID" class="btn btn-primary">Düzenle</a>
-                        </td> 
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
- </div> 
-<script>
-    $(function () {
-        $('#example1').DataTable()
-        $('#example2').DataTable({
-            'paging': true,
-            'lengthChange': false,
-            'searching': false,
-            'ordering': true,
-            'info': true,
-            'autoWidth': false
+<script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+@section Scripts
+{
+<script type="text/javascript">
+
+    $(document).ready(() => {
+
+        var connection = new signalR.HubConnectionBuilder().withAutomaticReconnect().withUrl("https://localhost:44313/MyHub").build(); // F12 denildiğinde bağlantı kesilip 1. sn devreye girer ve 4 kez bağlanmayı dener sonra bağlanamazsa bağlantıyı koparıyor.
+
+        $("#conStatus").text(connection.connectionState);
+
+        connection.start().then(() => {
+            $("#conStatus").text(connection.connectionState);
+            $("#loading").hide();
+                connection.invoke("GetNames");
+        }).catch((err) => { console.log(err) });
+
+        $("#btnSave").click(() => {
+            connection.invoke("SendName", $("#txtName").val())
+                .catch((err) => { console.log(err) })
+        });
+
+        connection.on("ReceiveName", (name) => {
+            //console.log(name);
+            $("#namesList").append(`<li class="list-group-item">${name}</li>`);
+        });
+
+        connection.onreconnecting(err => {
+            ("#loading").show();
+            $("#conStatus").text(connection.connectionState);
+            console.log(err);
+        });
+
+        connection.onreconnected(err => {
+            $("#loading").hide();
+            
+            $("#conStatus").text(connection.connectionState);
+            console.log(err);
+        });
+
+        connection.on("ReceiveClientCount",(ClientCount) =>{
+            $("#clientCount").text(ClientCount);
+        });
+
+        connection.on("Notify",(countText) =>{
+            $("#notify").html(`<div class="alert alert-success">${countText}</div>`);
+        });
+
+        connection.on("Error",(errorText) =>{
+          alert(errorText);
+        });
+
+        connection.on("ReceiveNames", (names) =>{
+            $("#namesList").empty();
+            names.forEach((item,index) =>{
+                $("#namesList").append(`<li class="list-group-item">${item}</li>`);
+            })
         })
+
     })
 </script>
+
+}
+
+
+
+
+<div class="box box-primary">
+    <div class="box-header">
+        <h3 class="box-title">Çalışanlar</h3>&emsp;
+        <a href="/AdminSubscribe/AddSubscribe/" class="btn btn-success"><i class="fa fa-plus"></i> Yeni Çalışan Girişi</a>
+    </div>
+    <div class="box-body">
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <input type="text" class="form-control" id="txtName" />
+                <hr />
+                <button class="btn btn-warning" id="btnSave">İsmi Kaydet</button>
+                <div class="alert alert-info mt-2">
+                    <div class="float-lest">
+                        Bağlantı Durumu:<strong id="conStatus"></strong>
+                        ,Client Sayısı:<strong id="clientCount"></strong>
+                    </div>
+                    <div class="float-right">
+                        <div id="loading" class="spinner-border" role="status"></div>
+                        <span class="visually-hidden"></span>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+           
+            <div class="col-md-8 offset-2">
+                <ul class="list-group" id="namesList"></ul>
+            </div>
+            <div class="col-md-8 offset-2">
+                <div id="notify"></div>
+                </div>
+
+     
+        </div>
+      
+    </div>
+
+    
+</div>

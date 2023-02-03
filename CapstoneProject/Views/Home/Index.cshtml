@@ -1,8 +1,8 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
-@section Scripts
+
+@*@section Scripts
 {
     <script type="text/javascript">
         
@@ -20,24 +20,24 @@
             $("#btnSave").click(() =>{
                 connection.invoke("SendName", $("#txtName").val())
                 .catch((err) => {console.log(err)})
-            })
+            });
 
             connection.on("ReceiveName", (name) =>{
                 //console.log(name);
-                $("#namesList").append(`<li class="list-group-item">${name}</li>`)
-            })
+                $("#namesList").append(`<li class="list-group-item">${name}</li>`);
+            });
 
             connection.onreconnecting(err =>{
                 ("#loading").show();
                 $("#conStatus").text(connection.connectionState);
                 console.log(err);
-            })
+            });
 
             connection.onreconnected(err =>{
                 $("#loading").hide();
                 $("#conStatus").text(connection.connectionState);
                 console.log(err);
-            })
+            });
         })
     </script>
 }
@@ -59,6 +59,6 @@
         </div>
     </div>
     <div class="col-md-8 offset-2">
-        <ul class="list-group" id="nameList"></ul>
+        <ul class="list-group" id="namesList"></ul>
     </div>
-</div>
+</div>*@

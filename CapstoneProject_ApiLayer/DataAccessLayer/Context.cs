@@ -6,9 +6,10 @@ namespace CapstoneProject_ApiLayer.DataAccessLayer
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=RAMAZANSURUCU; database=CoreBlogApiDb; integrated security=true;");
+            optionsBuilder.UseSqlServer("server=RAMAZANSURUCU; database=DbCapstoneApi; integrated security=true;");
         }
 
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Subscribe> Subscribes { get; set; }
     }
 }
