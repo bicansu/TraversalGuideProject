@@ -1,0 +1,30 @@
+﻿@model CapstoneProject.Controllers.Class1
+@{
+    ViewData["Title"] = "EditEmployee";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title">Abone Güncelleme Sayfası</h3>
+    </div>
+    <form method="post" role="form">
+         <div class="box-body">
+            <div class="form-group">
+                <label>ID</label>
+                 @Html.TextBoxFor(x => x.ID, new{@class="form-control"})
+            </div>
+        </div>
+        <div class="box-body">
+            <div class="form-group">
+                <label>Personel</label>
+                @Html.TextBoxFor(x => x.Name, new{@class="form-control"})
+            </div>
+        </div>
+
+        <div class="box-footer">
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+        </div>
+    </form>
+</div>
+

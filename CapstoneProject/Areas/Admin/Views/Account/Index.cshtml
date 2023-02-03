@@ -1,0 +1,74 @@
+﻿@model List<Account>
+@{
+    ViewData["Title"] = "Kullanıcılar";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title">Kullanıcı Para Transferi</h3>
+    </div>
+    <form method="post" role="form">
+        <div class="box-body">
+            <div class="form-group">
+                <label>Gönderici</label>
+                <select name="SenderID" class="form-control select2" style="width:100%;" onchange="getReceiverList(this.value)">
+                    <option value="">Seçiniz</option>
+                    @foreach (var item in Model)
+                    {
+                        <option value="@item.AccountID">@item.Name</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Alıcı</label>
+                <select name="ReceiverID" id="ReceiverID" style="width:100%;" class="form-control select2">
+                    <option value="">Seçiniz</option>   
+                 </select>
+            </div>
+            <div class="form-group">
+                <label>Miktar</label>
+                <input type="number" class="form-control" name="Amount">
+               
+            </div>
+        </div>
+
+        <div class="box-footer">
+            <button type="submit" class="btn btn-primary"><i class="fa fa-money"></i> Hesaba Aktar</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    function getReceiverList(val) {
+        console.log(val);
+
+        $.ajax({
+            url: 'getRList',
+            type: 'Get',
+            dataType: 'json',
+            data: {
+                val: val
+            },
+            success: function (result) {
+
+                console.log(jQuery.parseJSON(result));
+
+                let veriler = jQuery.parseJSON(result);
+
+                var html = "";
+                html += '<select name="ReceiverID" id="ReceiverID" style="width:100%;" class="form-control select2">';
+                html += '<option value="">Seçiniz</option>';
+
+                for (var i = 0; i < veriler.length; i++) {
+                    html += ' <option value="' + veriler[i].AccountID + '">' + veriler[i].Name + '</option>';
+
+                }
+
+                html += '  </select>';
+                $("#ReceiverID").html(html);
+            }
+        });
+
+    }
+</script>

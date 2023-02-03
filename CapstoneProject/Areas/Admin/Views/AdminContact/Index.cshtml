@@ -1,0 +1,64 @@
+﻿@model List<ContactListDto>
+@{
+    ViewData["Title"] = "İletişim";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="box box-primary">
+    <div class="box-header">
+        <h3 class="box-title">İletişim</h3>&emsp;
+        <a class="btn btn-success" href="/Admin/AdminContact/AddContact"><i class="fa fa-plus"></i> İletişim Ekle</a>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>İsim Soyisim</th>
+                    <th>Email</th>
+                    <th>Yorum</th>
+                    <th>Telefon</th>
+                    <th>Tarih</th>
+                    <th>Konu</th>
+                    <th>İşlemler</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Contact3ID</td>
+                        <td>@item.NameSurname</td>
+                        <td>@item.Email</td>
+                        <td>@item.Comment</td>
+                        <td>@item.Phone</td>
+                        <td>@item.Date</td>
+                        <td>@item.Subject</td>
+                        
+                        <td>
+                            <a href="/Admin/AdminContact/UpdateContact/@item.Contact3ID" class="btn btn-primary">Güncelle</a>
+                            <a href="/Admin/AdminContact/DeleteContact/@item.Contact3ID" class="btn btn-danger">Sil</a>
+
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <!-- /.box-body -->
+</div>
+
+<script>
+    $(function () { 
+        $('#example1').DataTable({
+            'paging': true,
+            'lengthChange': false,
+            'searching': false,
+            'ordering': true,
+            'info': true,
+            'autoWidth': false
+        })
+    })
+</script>

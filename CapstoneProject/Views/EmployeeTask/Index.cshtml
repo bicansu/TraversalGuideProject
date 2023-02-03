@@ -1,0 +1,50 @@
+﻿@using CapstoneProject.Controllers
+@model List<Class1>
+@{
+    ViewData["Title"] = "Aboneler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="box box-primary">
+    <div class="box-header">
+        <h3 class="box-title">Aboneler</h3>&emsp; 
+        <a href="/EmployeeTest/AddEmployee/" class="btn btn-success"><i class="fa fa-plus"></i> Yeni Abone Girişi</a>
+    </div> 
+    <div class="box-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Adı Soyadı</th> 
+                    <th>İŞLEMLER</th> 
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.ID</td>
+                        <td>@item.Name</td>
+                        <td>
+                            <a href="/EmployeeTask/DeleteEmployee/@item.ID" class="btn btn-danger">Sil</a> 
+                            <a href="/EmployeeTask/EditEmployee/@item.ID" class="btn btn-primary">Düzenle</a>
+                        </td> 
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+ </div> 
+<script>
+    $(function () {
+        $('#example1').DataTable()
+        $('#example2').DataTable({
+            'paging': true,
+            'lengthChange': false,
+            'searching': false,
+            'ordering': true,
+            'info': true,
+            'autoWidth': false
+        })
+    })
+</script>

@@ -1,0 +1,33 @@
+﻿@model List<TourInform>
+
+    <style>
+        h6
+        {
+                position: absolute;
+                color: white;
+                bottom: 150px;
+                left: 160px;
+                font-size: 20px;
+        }
+
+    </style>
+<div class="agency" id="agency">
+    <div class="white-overlay">
+        @foreach(var item in Model)
+        {
+            <div class="container">
+
+                <div>
+                    <img src="@item.Image">
+                    <div>
+                        <img src="@item.Image2">
+                        <h6>@item.Title</h6>
+                    </div>
+                    <img src="@item.Image3">
+                </div>
+                <p class="text-center">@item.Description</p>
+            </div>
+        }
+        
+    </div>
+</div>

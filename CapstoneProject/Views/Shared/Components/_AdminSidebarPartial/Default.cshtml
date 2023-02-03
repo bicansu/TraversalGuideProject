@@ -1,0 +1,270 @@
+﻿
+@{
+    Layout = null;
+}
+
+<aside class="main-sidebar">
+    <section class="sidebar">
+
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img src="@ViewBag.ImageUrl" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+                <p>@ViewBag.Name @ViewBag.Surname</p>
+                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            </div>
+        </div>
+
+
+        @{
+            var homeActive = "";
+            var aboutActive = "";
+            var bannerActive = ""; 
+            var contactActive = "";
+            var infoActive = "";
+            var tourActive = "";
+            var travelAgencyActive = "";
+            var accountActive = "";
+            var excelActive = "";
+            var pdfActive = "";
+            var mailActive = "";
+            var SubActive = "";
+            switch (ViewData["Title"])
+            {
+                case "Anasayfa":
+                     homeActive = "active";
+                     aboutActive = "";
+                     bannerActive = "";
+                     contactActive = "";
+                     infoActive = "";
+                     tourActive = "";
+                     travelAgencyActive = "";
+                     accountActive = "";
+                     excelActive = "";
+                     pdfActive = "";
+                     mailActive = "";
+                     SubActive = "";
+                    break;
+                case "Hakkımızda":
+                     homeActive = "";
+                     aboutActive = "active";
+                     bannerActive = ""; 
+                     contactActive = "";
+                     infoActive = "";
+                     tourActive = "";
+                     travelAgencyActive = "";
+                     accountActive = "";
+                     excelActive = "";
+                     pdfActive = "";
+                     mailActive = "";
+                     SubActive = "";
+                    break;
+                case "Banner":
+                     homeActive = "";
+                     aboutActive = "";
+                     bannerActive = "active";
+                     contactActive = "";
+                     infoActive = "";
+                     tourActive = "";
+                     travelAgencyActive = "";
+                     accountActive = "";
+                     excelActive = "";
+                     pdfActive = "";
+                     mailActive = "";
+                     SubActive = "";
+                    break;
+                case "İletişim":
+                     homeActive = "";
+                     aboutActive = "";
+                     bannerActive = "";
+                     contactActive = "active";
+                     infoActive = "";
+                     tourActive = "";
+                     travelAgencyActive = "";
+                     accountActive = "";
+                     excelActive = "";
+                     pdfActive = "";
+                     mailActive = "";
+                     SubActive = "";
+                    break;
+                case "Bilgi":
+                     homeActive = "";
+                     aboutActive = "";
+                     bannerActive = "";
+                     contactActive = "";
+                     infoActive = "active";
+                     tourActive = "";
+                     travelAgencyActive = "";
+                     accountActive = "";
+                     excelActive = "";
+                     pdfActive = "";
+                     mailActive = "";
+                     SubActive = "";
+                    break;
+                case "Tur Bilgisi":
+                     homeActive = "";
+                     aboutActive = "";
+                     bannerActive = "";
+                     contactActive = "";
+                     infoActive = "";
+                     tourActive = "active";
+                     travelAgencyActive = "";
+                     accountActive = "";
+                     excelActive = "";
+                     pdfActive = "";
+                     mailActive = "";
+                     SubActive = "";
+                    break;
+                case "Seyahat Acentesi":
+                     homeActive = "";
+                     aboutActive = "";
+                     bannerActive = ""; 
+                     contactActive = "";
+                     infoActive = "";
+                     tourActive = "";
+                     travelAgencyActive = "active";
+                     accountActive = "";
+                     excelActive = "";
+                     pdfActive = "";
+                     mailActive = "";
+                     SubActive = "";
+                    break;
+                case "Kullanıcılar":
+                     homeActive = "";
+                     aboutActive = "";
+                     bannerActive = ""; 
+                     contactActive = "";
+                     infoActive = "";
+                     tourActive = "";
+                     travelAgencyActive = "";
+                     accountActive = "active";
+                     excelActive = "";
+                     pdfActive = "";
+                     mailActive = "";
+                     SubActive = "";
+                    break;
+                case "Excel Raporlar":
+                     homeActive = "";
+                     aboutActive = "";
+                     bannerActive = "";
+                     contactActive = "";
+                     infoActive = "";
+                     tourActive = "";
+                     travelAgencyActive = "";
+                     accountActive = "";
+                     excelActive = "active";
+                     pdfActive = "";
+                     mailActive = "";
+                     SubActive = "";
+                    break;
+                case "Pdf Raporlar":
+                     homeActive = "";
+                     aboutActive = "";
+                     bannerActive = "";
+                     contactActive = "";
+                     infoActive = "";
+                     tourActive = "";
+                     travelAgencyActive = "";
+                     accountActive = "";
+                     excelActive = "";
+                     pdfActive = "active";
+                     mailActive = "";
+                     SubActive = "";
+                    break;
+                case "Mail Gönder":
+                     homeActive = "";
+                     aboutActive = "";
+                     bannerActive = "";
+                     contactActive = "";
+                     infoActive = "";
+                     tourActive = "";
+                     travelAgencyActive = "";
+                     accountActive = "";
+                     excelActive = "";
+                     pdfActive = "";
+                     mailActive = "active";
+                     SubActive = "";
+                    break;
+                case "Aboneler":
+                     homeActive = "";
+                     aboutActive = "";
+                     bannerActive = "";
+                     contactActive = "";
+                     infoActive = "";
+                     tourActive = "";
+                     travelAgencyActive = "";
+                     accountActive = "";
+                     excelActive = "";
+                     pdfActive = "";
+                     mailActive = "";
+                     SubActive = "active";
+                    break;
+            }
+        }
+        <ul class="sidebar-menu" data-widget="tree" style="margin-top:10px;">
+            <li class="header">MENÜLER</li>
+            <li class="@homeActive">
+                <a href="/AdminHome/Index/">
+                    <i class="fa fa-home"></i> <span>ANASAYFA</span>
+                </a>
+            </li>
+            <li class="@aboutActive">
+                <a href="/AdminAbout/Index/">
+                    <i class="fa fa-book"></i> <span>HAKKIMIZDA</span>
+                </a>
+            </li>
+            <li class="@bannerActive">
+                <a href="/AdminBanner/Index/">
+                    <i class="fa fa-picture-o"></i> <span>BANNER</span>
+                </a>
+            </li>
+            <li class="@contactActive">
+                <a href="/Admin/AdminContact/Index/">
+                    <i class="fa fa-phone-square"></i> <span>İLETİŞİM</span>
+                </a>
+            </li>
+            <li class="@infoActive">
+                <a href="/AdminOurInfo/Index/">
+                    <i class="fa fa-info-circle"></i> <span>BİLGİ</span>
+                </a>
+            </li>
+          
+            <li class="@tourActive">
+                <a href="/AdminTourInform/Index/">
+                    <i class="fa fa-list-alt"></i> <span>TUR BİLGİSİ</span>
+                </a>
+            </li>
+            <li class="@travelAgencyActive">
+                <a href="/Admin/AdminTravelAgencyCQRS/Index">
+                    <i class="fa fa-plane"></i> <span>SEYAHAT ACENTESİ</span>
+                </a>
+            </li>
+            <li class="@accountActive">
+                <a href="/Admin/Account/Index">
+                    <i class="fa fa-user"></i> <span>KULLANICILAR (UOW)</span>
+                </a>
+            </li>
+            <li class="@excelActive">
+                <a href="/AdminExcel/Index">
+                    <i class="fa fa-file-excel-o"></i> <span>EXCEL RAPORLAR</span>
+                </a>
+            </li>
+            <li class="@pdfActive">
+                <a href="/AdminPDFReport/Index">
+                    <i class="fa fa-file-pdf-o"></i> <span>PDF RAPORLAR</span>
+                </a>
+            </li>
+            <li class="@mailActive">
+                <a href="/Admin/Mail/Index">
+                    <i class="fa fa-envelope"></i> <span>MAİL GÖNDER</span>
+                </a>
+            </li>
+            <li class="@SubActive">
+                <a href="/EmployeeTask/Index">
+                    <i class="fa fa-users"></i> <span>ABONELER (API)</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+</aside>

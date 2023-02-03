@@ -1,0 +1,17 @@
+﻿@model Contact3
+<div class="contact" id="contact">
+    <div class="violet-overlay">
+        <div class="container">
+            <h2 class="text-center">Bizimle İletişime Geçin</h2>
+            <div class="contact-form">
+                <form method="post" asp-controller="User" asp-action="AddContact"  > 
+                    <input type="text" asp-for="NameSurname" placeholder="Adınız Soyadınız">
+                    <input type="email" asp-for="Email" placeholder="Mail Adresiniz">
+                    <input type="text" asp-for="Phone" placeholder="Telefon Numaranız">
+                    <textarea asp-for="Comment" placeholder="Mesaj Giriniz"></textarea>
+                    <input type="submit" value="GÖNDER">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

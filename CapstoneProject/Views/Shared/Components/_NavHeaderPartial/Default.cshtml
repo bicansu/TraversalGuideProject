@@ -1,0 +1,15 @@
+﻿@model List<Banner>
+@foreach (var item in Model)
+{
+    <header id="home" style=" background-image: url(/Template @item.Image);background-size: cover;">
+        <div class="overlay">
+            <div class="container">
+                <div>
+                    <h1><span>@item.Title</span><br>@item.SubTitle</h1>
+                    <p>@item.Description</p>
+                    @*<button><a href="#" class="text-uppercase">book now</a></button>*@
+                </div>
+            </div>
+        </div>
+    </header>
+}

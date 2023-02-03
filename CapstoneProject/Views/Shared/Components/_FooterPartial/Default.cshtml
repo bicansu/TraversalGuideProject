@@ -1,0 +1,48 @@
+﻿@model Subscriber
+<footer>
+    <div class="container">
+        <ul>
+            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+            <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+        </ul>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="item">
+                    <h4 class="text-uppercase">Bize Ulaşın</h4>
+                    <p class="address">
+                        @ViewBag.address
+                        <br />
+                        @ViewBag.phone
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="item">
+                    <h4 class="text-uppercase">MENÜLER</h4>
+                    <ul>
+                        <li><a href="#home">Anasayfa</a></li>
+                        <li><a href="#about">Hakkımızda</a></li>
+                        <li><a href="#service">Hizmetler</a></li>
+                        <li><a href="#agency">Turlar</a></li>
+                        <li><a href="#contact">İletişim</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+                <div class="item">
+                    <h4 class="text-uppercase">Haberler için Abone Ol</h4>
+                    <form method="POST" asp-action="AddSub" asp-controller="User">
+                        <input type="text" asp-for="NameSurname" placeholder="Adınız Soyadınız">
+                        <input type="email" asp-for="Email" placeholder="Mail Adresiniz">
+                        <input type="submit" value="Kaydet">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright text-center">
+        <p>Copyright @DateTime.Now.Year  Design By Cansu 
+    </div>
+</footer>
