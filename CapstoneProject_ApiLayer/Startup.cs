@@ -1,3 +1,4 @@
+using CapstoneProject_ApiLayer.DataAccessLayer;
 using CapstoneProject_ApiLayer.Hubs;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,6 +28,7 @@ namespace CapstoneProject_ApiLayer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<Context>();
             services.AddCors();
             services.AddSignalR();
             services.AddControllers();

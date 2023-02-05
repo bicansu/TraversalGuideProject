@@ -4,6 +4,6 @@
     {
         public int UserID { get; set; }
         public string Name{ get; set; }
-        public Room Room{ get; set; }
+        public Occupation Occupation{ get; set; }
     }
 }

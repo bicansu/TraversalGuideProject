@@ -11,8 +11,9 @@ namespace CapstoneProject.Controllers
         public IActionResult Index()
         {
             Context c = new Context();
-            ViewBag.KullaniciSayisi = c.Accounts.Count();
+            ViewBag.KullaniciSayisi = c.UserCounts.Count();
             ViewBag.AboneSayisi     = c.Subscribers.Count();
+            ViewBag.HesapSayisi     = c.Accounts.Count();
 
             return View();
         }

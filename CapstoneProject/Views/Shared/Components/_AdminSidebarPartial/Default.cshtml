@@ -34,6 +34,7 @@
             var pdfActive = "";
             var mailActive = "";
             var SubActive = "";
+            var etkinlikActive = "";
             switch (ViewData["Title"])
             {
                 case "Anasayfa":
@@ -49,6 +50,8 @@
                      pdfActive = "";
                      mailActive = "";
                      SubActive = "";
+                     etkinlikActive = "";
+
                     break;
                 case "Hakkımızda":
                      homeActive = "";
@@ -63,6 +66,7 @@
                      pdfActive = "";
                      mailActive = "";
                      SubActive = "";
+                    etkinlikActive = "";
                     break;
                 case "Banner":
                      homeActive = "";
@@ -77,6 +81,7 @@
                      pdfActive = "";
                      mailActive = "";
                      SubActive = "";
+                    etkinlikActive = "";
                     break;
                 case "İletişim":
                      homeActive = "";
@@ -91,6 +96,7 @@
                      pdfActive = "";
                      mailActive = "";
                      SubActive = "";
+                    etkinlikActive = "";
                     break;
                 case "Bilgi":
                      homeActive = "";
@@ -105,6 +111,7 @@
                      pdfActive = "";
                      mailActive = "";
                      SubActive = "";
+                    etkinlikActive = "";
                     break;
                 case "Tur Bilgisi":
                      homeActive = "";
@@ -119,6 +126,7 @@
                      pdfActive = "";
                      mailActive = "";
                      SubActive = "";
+                    etkinlikActive = "";
                     break;
                 case "Seyahat Acentesi":
                      homeActive = "";
@@ -133,6 +141,7 @@
                      pdfActive = "";
                      mailActive = "";
                      SubActive = "";
+                    etkinlikActive = "";
                     break;
                 case "Kullanıcılar":
                      homeActive = "";
@@ -147,6 +156,7 @@
                      pdfActive = "";
                      mailActive = "";
                      SubActive = "";
+                    etkinlikActive = "";
                     break;
                 case "Excel Raporlar":
                      homeActive = "";
@@ -161,6 +171,7 @@
                      pdfActive = "";
                      mailActive = "";
                      SubActive = "";
+                    etkinlikActive = "";
                     break;
                 case "Pdf Raporlar":
                      homeActive = "";
@@ -175,6 +186,7 @@
                      pdfActive = "active";
                      mailActive = "";
                      SubActive = "";
+                    etkinlikActive = "";
                     break;
                 case "Mail Gönder":
                      homeActive = "";
@@ -189,6 +201,7 @@
                      pdfActive = "";
                      mailActive = "active";
                      SubActive = "";
+                    etkinlikActive = "";
                     break;
                 case "Aboneler":
                      homeActive = "";
@@ -203,6 +216,22 @@
                      pdfActive = "";
                      mailActive = "";
                      SubActive = "active";
+                    etkinlikActive = "";
+                    break;
+                case "Etkinlikler":
+                    homeActive = "";
+                    aboutActive = "";
+                    bannerActive = "";
+                    contactActive = "";
+                    infoActive = "";
+                    tourActive = "";
+                    travelAgencyActive = "";
+                    accountActive = "";
+                    excelActive = "";
+                    pdfActive = "";
+                    mailActive = "";
+                    SubActive = "";
+                    etkinlikActive = "active";
                     break;
             }
         }
@@ -211,6 +240,16 @@
             <li class="@homeActive">
                 <a href="/AdminHome/Index/">
                     <i class="fa fa-home"></i> <span>ANASAYFA</span>
+                </a>
+            </li>
+            <li class="@etkinlikActive">
+                <a href="/AdminCalendar/Index/">
+                    <i class="fa fa-calendar"></i> <span>ETKİNLİKLER</span>
+                </a>
+            </li>
+            <li class="@etkinlikActive">
+                <a href="/AdminUsers/Index/">
+                    <i class="fa fa-users"></i> <span>KULLANICILAR</span>
                 </a>
             </li>
             <li class="@aboutActive">
@@ -246,7 +285,7 @@
             </li>
             <li class="@accountActive">
                 <a href="/Admin/Account/Index">
-                    <i class="fa fa-user"></i> <span>KULLANICILAR (UOW)</span>
+                    <i class="fa fa-money"></i> <span>PARA TRANSFERİ (UOW)</span>
                 </a>
             </li>
             <li class="@excelActive">

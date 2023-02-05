@@ -2,11 +2,13 @@
 using CapstoneProject_BusinessLayer.Concrete;
 using CapstoneProject_DataAccessLayer.Concrete;
 using CapstoneProject_EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
 namespace CapstoneProject.Controllers
 {
+    [AllowAnonymous]
     public class UserController : Controller
     {
         private readonly IContact3Service _contact2Service;
