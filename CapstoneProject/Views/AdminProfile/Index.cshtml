@@ -1,0 +1,140 @@
+﻿@model AppUserModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    if(@ViewBag.ImageUrl == null)
+    {
+        ViewBag.ImageUrl = "/Images/user.png";
+    }
+   
+}
+
+@*<div class="col-md-3">
+     
+    <div class="box box-primary">
+        <div class="box-body box-profile">
+            <img class="profile-user-img img-responsive img-circle" src="@ViewBag.ImageUrl">
+
+            <h3 class="profile-username text-center">@ViewBag.Name @ViewBag.Surname</h3>
+
+         
+
+            <ul class="list-group list-group-unbordered">
+                <li class="list-group-item">
+                    <b>Cinsiyet</b> @ViewBag.Gender
+                </li>
+                <li class="list-group-item">
+                    <b>Tel</b>  @ViewBag.PhoneNumber
+                </li>
+                <li class="list-group-item">
+                    <b>Yaş</b> @ViewBag.Age
+                </li>
+                
+            </ul>
+
+         </div>
+     </div> 
+</div>*@
+<div class="col-md-3">
+    <div class="box box-widget widget-user">
+         <div class="widget-user-header bg-black" style="background: url('/AdminTemplate/dist/img/photo1.png') center center;">
+            <h3 class="widget-user-username">@ViewBag.Name @ViewBag.Surname</h3>
+            <h5 class="widget-user-desc">@ViewBag.Job</h5>
+        </div>
+        <div class="widget-user-image">
+            <img class="img-circle" src="@ViewBag.ImageUrl" alt="@ViewBag.Name @ViewBag.Surname" style="width:90px;height:90px;">
+        </div>
+        <div class="box-footer">
+            <div class="row">
+                <div class="col-sm-4 border-right">
+                    <div class="description-block">
+                        <h5 class="description-header">Tel</h5>
+                        <span class="description-text">@ViewBag.PhoneNumber</span>
+                    </div>
+                 </div>
+                 <div class="col-sm-4 border-right">
+                    <div class="description-block">
+                        <h5 class="description-header">Yaş</h5>
+                        <span class="description-text">@ViewBag.Age</span>
+                    </div>
+                 </div>
+                 <div class="col-sm-4">
+                    <div class="description-block">
+                        <h5 class="description-header">Cinsiyet</h5>
+                        <span class="description-text">@ViewBag.Gender</span>
+                    </div>
+                 </div>
+             </div>
+         </div>
+    </div>
+</div>
+ <div class="col-md-9  ">
+    <div class="box box-primary" style="padding:5px;">
+          <div class="box-header with-border">
+              <h3 class="box-title">Profili Güncelle</h3>
+          </div>
+        <div class="box-body"> 
+            <form asp-action="Index" asp-controller="AdminProfile" method="post" enctype="multipart/form-data" >
+                <input type="hidden" name="Id" value="@ViewBag.Id" />
+                <div class="form-group">
+                    <label>Kullanıcı Adınız</label> 
+                    <input type="text" readonly class="form-control"  value ="@ViewBag.Username"> 
+                </div> 
+                <div class="form-group">
+                    <label >Ad</label>
+                    <input type="text" class="form-control" placeholder="Name" name="Name" value="@ViewBag.Name"> 
+                </div> 
+                <div class="form-group">
+                    <label >Soyad</label> 
+                    <input type="text" class="form-control" placeholder="Soyadınızı giriniz." name="Surname" value="@ViewBag.Surname">
+                </div>
+                <div class="form-group">
+                    <label>Yaş</label>
+                    <input type="number" class="form-control" placeholder="Yaşınızı giriniz." name="Age" value="@ViewBag.Age">
+                </div>
+                <div class="form-group">
+                    <label>Tel</label>  
+                    <input type="text" class="form-control"  placeholder="Telefon numaranızı giriniz." name="PhoneNumber" value="@ViewBag.PhoneNumber">
+                </div>
+                <div class="form-group">
+                    <label>Meslek</label>
+                    <input type="text" class="form-control" placeholder="Meslek giriniz." name="Job" value="@ViewBag.Job">
+                </div>
+                <div class="form-group">
+                    <label>Cinsiyet</label>
+                    @Html.DropDownList("Gender", new SelectList(ViewBag.genderList, "Value", "Text",ViewBag.Gender), new { @class = "form-control select2" })
+                </div>
+                <div class="form-group">
+                    <label>Resim</label> 
+                    <input type="file" class="form-control" name="ImageUrl" />
+                </div> 
+                <div class="form-group"> 
+                        <img src="@ViewBag.ImageUrl" style="width:100px;height:100px;" />
+                     
+                </div>
+                <div class="form-group">
+                    <div class="align-left">
+                        <button type="submit" class="btn btn-default"><i class="fa fa-save"></i> Kaydet</button>
+                    </div>
+                </div> 
+            </form> 
+            @if (ViewBag.State == true)
+            {
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4><i class="icon fa fa-check"></i> Başarılı!</h4>
+                    Güncelleme işlemi başarı ile gerçekleşmiştir.
+                </div>
+            }
+            else if(ViewBag.State == false)
+            {
+                <div class="alert alert-danger alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4><i class="icon fa fa-check"></i> Başarısız!</h4>
+                    Güncelleme işlemi başarısız.
+                </div>
+            }   
+         </div>
+     </div>
+ </div>
+ 

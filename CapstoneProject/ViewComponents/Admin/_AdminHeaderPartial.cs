@@ -14,6 +14,8 @@ namespace CapstoneProject.ViewComponents.Admin
             ViewBag.Name = values.Name;
             ViewBag.Surname = values.Surname;  
             ViewBag.ImageUrl = values.ImageUrl;  
+            ViewBag.Job = values.Job;  
+            ViewBag.Age = values.Age;  
             return View();
         }
     }

@@ -1,5 +1,6 @@
 ﻿using CapstoneProject.Models;
 using CapstoneProject_EntityLayer.Concrete;
+using DocumentFormat.OpenXml;
 using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -32,7 +33,7 @@ namespace CapstoneProject.Controllers
         [HttpGet]
         public IActionResult EmailConfirmed()
         {
-              
+
             return View();
         }
         [HttpPost]
@@ -47,7 +48,7 @@ namespace CapstoneProject.Controllers
             }
             return View();
         }
-        public void SendEmail(string emailadres,string emailcode)
+        public void SendEmail(string emailadres, string emailcode)
         {
             MimeMessage mimeMessage = new MimeMessage();
 
@@ -75,41 +76,41 @@ namespace CapstoneProject.Controllers
             if (ModelState.IsValid)
             {
                 AppUser appUser = new AppUser()
-            {
-                Name = p.Name,
-                Surname = p.Surname,
-                Email = p.Mail,
-                UserName = p.Username,
-                MailCode = new Random().Next(100000, 999999).ToString()
+                {
+                    Name = p.Name,
+                    Surname = p.Surname,
+                    Email = p.Mail,
+                    UserName = p.Username,
+                    MailCode = new Random().Next(100000, 999999).ToString()
 
                 };
-            if(p.Password == p.ConfirmPassword)
-            { 
-                var result = await _userManager.CreateAsync(appUser, p.Password);
-               
-                if(result.Succeeded)
+                if (p.Password == p.ConfirmPassword)
                 {
-                        SendEmail(p.Mail,appUser.MailCode);
-                         
-                    //return RedirectToAction("SignIn");
-                    return RedirectToAction("EmailConfirmed", "AdminLogin");
-                }
-                else
-                {
-                    foreach(var item in result.Errors)
+                    var result = await _userManager.CreateAsync(appUser, p.Password);
+
+                    if (result.Succeeded)
                     {
-                        ModelState.AddModelError("", item.Description);
+                        SendEmail(p.Mail, appUser.MailCode);
+
+                        //return RedirectToAction("SignIn");
+                        return RedirectToAction("EmailConfirmed", "AdminLogin");
                     }
-                    
-                }
-                 
+                    else
+                    {
+                        foreach (var item in result.Errors)
+                        {
+                            ModelState.AddModelError("", item.Description);
+                        }
+
+                    }
+
                 }
                 else
                 {
                     ModelState.AddModelError("", "Şifreler birbiriyle uyuşmuyor.");
                 }
-            
-        }
+
+            }
             return View();
         }
 
@@ -127,7 +128,7 @@ namespace CapstoneProject.Controllers
             if (ModelState.IsValid)
             {
                 var result = await _signInManager.PasswordSignInAsync(p.username, p.password, false, true);
-                if(result.Succeeded)
+                if (result.Succeeded)
                 {
                     return RedirectToAction("Index", "AdminHome");
                 }
@@ -144,6 +145,6 @@ namespace CapstoneProject.Controllers
             return RedirectToAction("SignIn", "AdminLogin");
         }
 
- 
+       
     }
 }

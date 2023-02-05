@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Threading.Tasks;
+using CapstoneProject_ApiLayer.Models;
+using DocumentFormat.OpenXml.Spreadsheet;
 
 namespace CapstoneProject.Controllers
 {
@@ -43,19 +45,13 @@ namespace CapstoneProject.Controllers
 
                 //if (about.Image != null)
                 //{
-                //    string path = "";
-                 
-                //        path = Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, "Images"));
-                //        if (!Directory.Exists(path))
-                //        {
-                //            Directory.CreateDirectory(path);
-                //        }
-                //        using (var fileStream = new FileStream(Path.Combine(path, about.Image.FileName), FileMode.Create))
-                //        {
-                //            await about.Image.CopyToAsync(fileStream);
-                //        }
-                       
-                   
+                //    var extension = Path.GetExtension(appUser.ImageUrl.FileName);
+                //    var newimagename = Guid.NewGuid() + extension;
+                //    var location = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Images/", newimagename);
+                //    var stream = new FileStream(location, FileMode.Create);
+                //    appUser.ImageUrl.CopyTo(stream);
+                //    au.ImageUrl = newimagename;
+                //    user.ImageUrl = "/Images/" + newimagename;
                 //}
 
                 _aboutService.TAdd(about);

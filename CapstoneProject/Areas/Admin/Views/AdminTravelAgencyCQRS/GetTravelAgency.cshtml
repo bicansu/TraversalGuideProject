@@ -1,6 +1,6 @@
 ﻿@model GetTravelAgencyByIDQueryResult
 @{
-    ViewData["Title"] = "GetTravelAgency";
+    ViewData["Title"] = "Seyahat Bilgisi Düzenle";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -12,7 +12,7 @@
         <input type="hidden" asp-for="TravelAgencyID" />
         <div class="box-body">
             <div class="form-group">
-                <label>Title</label>
+                <label>Başlık</label>
                 <input type="text" class="form-control" asp-for="Description" placeholder="Açıklama giriniz.">
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div> 
@@ -20,17 +20,14 @@
                 <label>Resim</label>
                 <input type="file" name="Image">
                 <span asp-validation-for="Image" class="text-danger"></span>
-            </div>
-
+            </div> 
         </div>
-        <!-- /.box-body -->
-        <div class="form-group">
+         <div class="form-group">
             <label></label>
-            <img src="@ViewBag.resim" style="width:100px;height:100px;" />
-
+            <img src="@ViewBag.resim" style="width:100px;height:100px;" /> 
         </div>
         <div class="box-footer">
-            <button type="submit" class="btn btn-primary">Gönder</button>
+            <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Kaydet</button>
         </div>
     </form>
 </div>

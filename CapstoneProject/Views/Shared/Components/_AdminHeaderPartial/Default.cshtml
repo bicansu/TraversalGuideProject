@@ -1,11 +1,14 @@
 ﻿
 @{
     Layout = null;
+    if (@ViewBag.ImageUrl == null)
+    {
+        ViewBag.ImageUrl = "/Images/user.png";
+    }
 }
 
   <header class="main-header">
-    <!-- Logo -->
-    <a href="index2.html" class="logo"> 
+     <a href="index2.html" class="logo"> 
       <span class="logo-mini"> <i class="fa fa-plane"></i></span> 
       <span class="logo-lg"><b>Admin Panel</b></span>
     </a> 
@@ -38,54 +41,7 @@
                     </a>
                   </li>
                  
-                  <li>
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="~/AdminTemplate/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        AdminLTE Design Team
-                        <small><i class="fa fa-clock-o"></i> 2 hours</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="~/AdminTemplate/dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        Developers
-                        <small><i class="fa fa-clock-o"></i> Today</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="~/AdminTemplate/dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        Sales Department
-                        <small><i class="fa fa-clock-o"></i> Yesterday</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="~/AdminTemplate/dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        Reviewers
-                        <small><i class="fa fa-clock-o"></i> 2 days</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
+             
                 </ul>
               </li>
               <li class="footer"><a href="#">Tüm Mesajları Gör</a></li>
@@ -100,15 +56,16 @@
               <li class="user-header">
                 <img src="@ViewBag.ImageUrl" class="img-circle" alt="User Image"> 
                 <p>
-                 @ViewBag.Name @ViewBag.Surname   
+                 @ViewBag.Name @ViewBag.Surname - @ViewBag.Job
                 </p>
+                 <small style="color:white;font-size:15px;">Yaş: @ViewBag.Age</small>
               </li>  
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profilim</a>
+                  <a href="/AdminProfile/Index" class="btn btn-default btn-flat"><i class="fa fa-user"></i> Profilim</a>
                 </div>
                 <div class="pull-right">
-                  <a href="/AdminLogin/SignOut" class="btn btn-default btn-flat">Çıkış Yap</a>
+                                <a href="/AdminLogin/SignOut" class="btn btn-default btn-flat"><i class="fa fa-sign-out"></i> Çıkış Yap</a>
                 </div>
               </li>
             </ul>

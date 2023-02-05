@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace CapstoneProject_ApiLayer.DataAccessLayer
 {
@@ -11,5 +12,6 @@ namespace CapstoneProject_ApiLayer.DataAccessLayer
 
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Subscribe> Subscribes { get; set; }
+        public IEnumerable<object> Users { get; set; }
     }
 }

@@ -31,7 +31,7 @@ namespace CapstoneProject.Areas.Admin.Controllers
         }
         [HttpGet]
 
-        [Route("Admin/AdminTravelAgencyCQRS/GetTravelAgency")]
+        [Route("Admin/AdminTravelAgencyCQRS/GetTravelAgency/{id}")]
         public IActionResult GetTravelAgency(int id)
         {
             var values = _getTravelAgencyByIDQueryHandler.Handle(new GetTravelAgencyByIDQuery(id));

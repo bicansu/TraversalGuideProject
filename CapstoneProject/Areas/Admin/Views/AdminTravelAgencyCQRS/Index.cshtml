@@ -9,8 +9,7 @@
         <h3 class="box-title">CQRS Seyahat Acentesi Listesi</h3>&emsp;
         <a class="btn btn-success" href="/Admin/AdminTravelAgencyCQRS/AddTravelAgency/"><i class="fa fa-plus"></i> Yeni Ekle</a>
     </div>
-    <!-- /.box-header -->
-    <div class="box-body">
+     <div class="box-body">
         <table id="example1" class="table table-bordered table-striped">
             <thead>
                 <tr>
@@ -27,33 +26,17 @@
                         <td>@item.id</td>
                         <td>@item.description</td> 
                         <td>
-                            <img src="@item.image" style="width:100px; height:100px;" />
-
+                            <img src="@item.image" style="width:100px; height:100px;" /> 
                         </td>
                         <td>
                             <a href="/Admin/AdminTravelAgencyCQRS/GetTravelAgency/@item.id" class="btn btn-primary">GÜNCELLE</a>
-                            <a href="/Admin/AdminTravelAgencyCQRS/DeleteTravelAgency/@item.id" class="btn btn-danger">SİL</a>
-
-                        </td>
-
+                            <a href="/Admin/AdminTravelAgencyCQRS/DeleteTravelAgency/@item.id" class="btn btn-danger">SİL</a> 
+                        </td> 
                     </tr>
                 }
             </tbody>
         </table>
     </div>
-    <!-- /.box-body -->
-</div>
+ </div>
 
-<script>
-    $(function () {
-        $('#example1').DataTable()
-        $('#example2').DataTable({
-            'paging': true,
-            'lengthChange': false,
-            'searching': true,
-            'ordering': true,
-            'info': true,
-            'autoWidth': true
-        })
-    })
-</script>
+ 

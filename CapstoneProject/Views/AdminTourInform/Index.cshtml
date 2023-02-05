@@ -1,0 +1,54 @@
+﻿@model List<TourInform>
+@{
+    ViewData["Title"] = "Tur Bilgisi";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title">Tur Bilgisi</h3>&emsp;
+        <a class="btn btn-success" href="/AdminAbout/AddAbout/"><i class="fa fa-plus"></i> Yeni Ekle</a>
+    </div>
+
+    <div class="box-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Başlık</th>
+                    <th>Açıklama</th>
+                    <th>Resim 1</th>
+                    <th>Resim 2</th>
+                    <th>Resim 3</th>
+                    <th>İşlemler</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.TourInformID</td>
+                        <td>@item.Title</td>
+                        <td>@item.Description</td> 
+                        <td>
+                            <img src="@item.Image" style="width:100px; height:100px;" /> 
+                        </td>
+                        <td>
+                            <img src="@item.Image2" style="width:100px; height:100px;" /> 
+                        </td>
+                        <td>
+                            <img src="@item.Image3" style="width:100px; height:100px;" /> 
+                        </td>
+                        <td>
+                            <a href="/AdminTourInform/UpdateTourInform/@item.TourInformID" class="btn btn-primary">Güncelle</a>
+                            <a href="/AdminTourInform/DeleteTourInform/@item.TourInformID" class="btn btn-danger">Sil</a>
+
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

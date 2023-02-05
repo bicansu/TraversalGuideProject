@@ -1,42 +1,43 @@
-﻿@model About
+﻿
 @{
-    ViewData["Title"] = "UpdateAbout";
+    ViewData["Title"] = "UpdateTourInform";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
-
+@*
 <div class="box box-primary">
     <div class="box-header with-border">
-        <h3 class="box-title">Hakkımızda Güncelle</h3>
+        <h3 class="box-title">Update About</h3>
     </div>
     <form method="post" role="form" asp-action="UpdateAbout" asp-controller="AdminAbout" enctype="multipart/form-data">
         <input type="hidden" asp-for="AboutID" />
         <div class="box-body">
             <div class="form-group">
-                <label>Başlık</label>
+                <label>Title</label>
                 <input type="text" class="form-control" asp-for="Title" placeholder="Enter Title">
                 <span asp-validation-for="Title" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label>Kısa Açıklama</label>
+                <label>Short Description</label>
                 <input type="text" class="form-control" asp-for="ShortDescription" placeholder="Enter Short Description">
                 <span asp-validation-for="ShortDescription" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label>Uzun Açıklama</label>
+                <label>Long Description</label>
                 <input type="text" class="form-control" asp-for="LongDescription" placeholder="Enter Long Description">
                 <span asp-validation-for="LongDescription" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label>Resim</label>
+                <label>Image</label>
                 <input type="file" asp-for="Image">
                 <span asp-validation-for="Image" class="text-danger"></span>
             </div>
-          
 
-        </div> 
+
+        </div>
+ 
         <div class="box-footer">
             <button type="submit" class="btn btn-primary">Gönder</button>
         </div>
     </form>
 </div>
+*@

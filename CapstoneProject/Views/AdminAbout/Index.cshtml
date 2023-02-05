@@ -4,21 +4,21 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 <div class="box box-primary">
-    <div class="box-header">
-        <h3 class="box-title">About List</h3>&emsp;
-        <a class="btn btn-success" href="/AdminAbout/AddAbout/"><i class="fa fa-plus"></i> New About</a>
+    <div class="box-header with-border">
+        <h3 class="box-title">Hakkımızda</h3>&emsp;
+        <a class="btn btn-success" href="/AdminAbout/AddAbout/"><i class="fa fa-plus"></i> Yeni Ekle</a>
     </div>
-    <!-- /.box-header -->
+     
     <div class="box-body">
         <table id="example1" class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Title</th>
-                    <th>ShortDescription</th>
-                    <th>LongDescription</th>
-                    <th>Image</th>
-                    <th>Process</th>
+                    <th>Başlık</th>
+                    <th>Kısa Açıklama</th>
+                    <th>Uzun Açıklama</th>
+                    <th>Resim</th>
+                    <th>İşlemler</th>
                 </tr>
             </thead>
             <tbody>
@@ -34,8 +34,8 @@
                         
                     </td>
                     <td>
-                        <a href="/AdminAbout/UpdateAbout/@item.AboutID" class="btn btn-primary">UPDATE</a>
-                        <a href="/AdminAbout/DeleteAbout/@item.AboutID" class="btn btn-danger">DELETE</a>
+                        <a href="/AdminAbout/UpdateAbout/@item.AboutID" class="btn btn-primary">Güncelle</a>
+                        <a href="/AdminAbout/DeleteAbout/@item.AboutID" class="btn btn-danger">Sil</a>
 
                     </td>
 
@@ -46,16 +46,4 @@
     </div> 
 </div>
 
-<script>
-    $(function () {
-        $('#example1').DataTable()
-        $('#example2').DataTable({
-            'paging': true,
-            'lengthChange': false,
-            'searching': false,
-            'ordering': true,
-            'info': true,
-            'autoWidth': false
-        })
-    })
-</script>
+ 

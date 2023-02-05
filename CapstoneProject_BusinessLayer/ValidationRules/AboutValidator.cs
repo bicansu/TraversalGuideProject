@@ -17,7 +17,7 @@ namespace CapstoneProject_BusinessLayer.ValidationRules
             RuleFor(x => x.Title).NotEmpty().MinimumLength(5).WithMessage("Lütfen en az 5 karakter giriniz!");
             RuleFor(x => x.ShortDescription).NotEmpty().WithMessage("Kısa açıklama boş olamaz!");
             RuleFor(x => x.LongDescription).NotEmpty().WithMessage("Uzun açıklama boş olamaz!");
-            RuleFor(x => x.Image).NotEmpty().WithMessage("Resim boş olamaz!");
+            
                 
         }
     }

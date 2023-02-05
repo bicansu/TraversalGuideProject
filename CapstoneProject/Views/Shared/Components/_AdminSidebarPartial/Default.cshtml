@@ -1,6 +1,10 @@
 ﻿
 @{
     Layout = null;
+    if (@ViewBag.ImageUrl == null)
+    {
+        ViewBag.ImageUrl = "/Images/user.png";
+    }
 }
 
 <aside class="main-sidebar">
@@ -8,7 +12,7 @@
 
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="@ViewBag.ImageUrl" class="img-circle" alt="User Image">
+                <img src="@ViewBag.ImageUrl" class="img-circle"  alt="User Image">
             </div>
             <div class="pull-left info">
                 <p>@ViewBag.Name @ViewBag.Surname</p>
