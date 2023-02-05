@@ -18,6 +18,7 @@ namespace CapstoneProject.CQRS.Handlers.TravelAgencyHandlers
             return new GetTravelAgencyByIDQueryResult
             {
                 TravelAgencyID = values.TravelAgencyID,
+                Title = values.Title,
                 Description = values.Description,
                 Image = values.Image
             };

@@ -9,5 +9,6 @@ namespace CapstoneProject_DataAccessLayer.Abstract
 {
     public interface IBannerDal: IGenericDal<Banner>
     {
+   
     }
 }

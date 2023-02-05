@@ -1,0 +1,38 @@
+﻿@model Banner
+@{
+    ViewData["Title"] = "Banner Ekleme";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+} 
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title">Yeni Banner Ekle</h3>
+    </div>
+    <form method="post" role="form" asp-action="AddBanner" asp-controller="AdminBanner" enctype="multipart/form-data">
+        <input type="hidden" value="false"/>
+        <div class="box-body">
+            <div class="form-group">
+                <label>Başlık</label>
+                <input type="text" class="form-control" asp-for="Title" placeholder="Başlık">
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Alt Başlık</label>
+                <input type="text" class="form-control" asp-for="SubTitle" placeholder="Alt Başlık">
+                <span asp-validation-for="SubTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Açıklama</label>
+                <input type="text" class="form-control" asp-for="Description" placeholder="Açıklama">
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Resim</label>
+                <input type="file" name="Image">
+                <span asp-validation-for="Image" class="text-danger"></span> 
+            </div> 
+        </div>  
+        <div class="box-footer">
+            <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Kaydet</button>
+        </div>
+    </form>
+</div>

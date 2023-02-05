@@ -1,29 +1,15 @@
-﻿<script src="~/Template/js/jquery-3.3.1.min.js"></script>
-<script src="~/Template/js/bootstrap.min.js"></script>
-<script>
-    $(function () {
+﻿
 
-        'use strict';
-
-        var winH = $(window).height();
-
-        $('header').height(winH);
-
-        $('header .container > div').css('top', (winH / 2) - ($('header .container > div').height() / 2));
-
-        $('.navbar ul li a.search').on('click', function (e) {
-            e.preventDefault();
-        });
-        $('.navbar a.search').on('click', function () {
-            $('.navbar form').fadeToggle();
-        });
-
-        $('.navbar ul.navbar-nav li a').on('click', function (e) {
-
-            var getAttr = $(this).attr('href');
-
-            e.preventDefault();
-            $('html').animate({ scrollTop: $(getAttr).offset().top }, 1000);
-        });
-    })
-</script>
+<script src="~/UserTemplate/assets/js/jquery.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script> 
+<script src="~/UserTemplate/assets/js/bootstrap.min.js"></script> 
+<script src="~/UserTemplate/assets/js/bootsnav.js"></script> 
+<script src="~/UserTemplate/assets/js/jquery.filterizr.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script> 
+<script src="~/UserTemplate/assets/js/jquery-ui.min.js"></script> 
+<script src="~/UserTemplate/assets/js/jquery.counterup.min.js"></script>
+<script src="~/UserTemplate/assets/js/waypoints.min.js"></script> 
+<script src="~/UserTemplate/assets/js/owl.carousel.min.js"></script> 
+<script src="~/UserTemplate/assets/js/jquery.sticky.js"></script> 
+<script src="~/UserTemplate/assets/js/datepicker.js"></script> 
+<script src="~/UserTemplate/assets/js/custom.js"></script>

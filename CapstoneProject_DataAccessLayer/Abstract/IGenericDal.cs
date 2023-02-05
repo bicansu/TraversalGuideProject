@@ -12,7 +12,8 @@ namespace CapstoneProject_DataAccessLayer.Abstract
         void Delete(T t);
         void Update(T t);
         List<T> Getlist();
-        T GetById(int id);
+        T GetById(int id); 
+
 
     }
 }

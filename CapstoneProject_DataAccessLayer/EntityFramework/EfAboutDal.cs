@@ -11,5 +11,6 @@ namespace CapstoneProject_DataAccessLayer.EntityFramework
 {
     public class EfAboutDal:GenericRepository<About>,IAboutDal
     {
+    
     }
 }

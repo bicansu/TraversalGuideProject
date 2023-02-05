@@ -38,6 +38,11 @@ namespace CapstoneProject_BusinessLayer.Concrete
            return _aboutDal.Getlist();
         }
 
+        public List<About> TGetStatTrue()
+        {
+            return _aboutDal.GetStatTrue();
+        }
+
         public void TUpdate(About t)
         {
             _aboutDal.Update(t);

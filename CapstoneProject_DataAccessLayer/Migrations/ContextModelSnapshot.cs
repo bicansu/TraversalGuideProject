@@ -35,6 +35,9 @@ namespace CapstoneProject_DataAccessLayer.Migrations
                     b.Property<string>("ShortDescription")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
@@ -215,6 +218,9 @@ namespace CapstoneProject_DataAccessLayer.Migrations
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
                     b.Property<string>("SubTitle")
                         .HasColumnType("nvarchar(max)");
 
@@ -335,10 +341,7 @@ namespace CapstoneProject_DataAccessLayer.Migrations
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Image2")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Image3")
+                    b.Property<string>("Price")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Status")
@@ -363,6 +366,9 @@ namespace CapstoneProject_DataAccessLayer.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("TravelAgencyID");

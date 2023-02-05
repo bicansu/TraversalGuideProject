@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CapstoneProject_DataAccessLayer.EntityFramework
 {
-    public class EfITourInformDal:GenericRepository<TourInform>, ITourInformDal
+    public class EfTourInformDal:GenericRepository<TourInform>, ITourInformDal
     {
     }
 }

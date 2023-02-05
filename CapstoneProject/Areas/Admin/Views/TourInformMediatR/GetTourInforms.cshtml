@@ -28,19 +28,18 @@
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label>Resim 1</label>
+                <label>Ücret</label>
+                <input type="text" class="form-control" asp-for="Price" placeholder="Ücret giriniz.">
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Resim</label>
                 <input type="file" asp-for="Image">
                 <span asp-validation-for="Image" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label>Resim 2</label>
-                <input type="file" asp-for="Image2">
-                <span asp-validation-for="Image2" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label>Resim 3</label>
-                <input type="file" asp-for="Image3">
-                <span asp-validation-for="Image3" class="text-danger"></span>
+                 
+                <img src="@ViewBag.Image" style="width:100px;height:100px;"> 
             </div>
         </div>
       

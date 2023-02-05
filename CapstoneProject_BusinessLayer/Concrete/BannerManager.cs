@@ -18,19 +18,21 @@ namespace CapstoneProject_BusinessLayer.Concrete
             _bannerDal = bannerDal;
         }
 
-        public void TAdd(Banner t)
+		 
+
+		public void TAdd(Banner t)
         {
-            throw new NotImplementedException();
+           _bannerDal.Insert(t);
         }
 
         public void TDelete(Banner t)
         {
-            throw new NotImplementedException();
+           _bannerDal.Delete(t);
         }
 
         public Banner TGetByID(int id)
         {
-            throw new NotImplementedException();
+            return _bannerDal.GetById(id);
         }
      
         public List<Banner> TGetList()
@@ -38,9 +40,11 @@ namespace CapstoneProject_BusinessLayer.Concrete
             return _bannerDal.Getlist();
         }
 
-        public void TUpdate(Banner t)
+		 
+
+		public void TUpdate(Banner t)
         {
-            throw new NotImplementedException();
+           _bannerDal.Update(t);
         }
     }
 }

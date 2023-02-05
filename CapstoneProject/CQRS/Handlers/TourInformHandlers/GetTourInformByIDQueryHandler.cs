@@ -24,8 +24,11 @@ namespace CapstoneProject.CQRS.Handlers.TourInformHandlers
                 TourInformID = values.TourInformID,
                 Title = values.Title,
                 Image = values.Image,
-                Image2 = values.Image2,
-                Image3 = values.Image3
+                Description = values.Description,
+                Price = values.Price,
+                Status = values.Status,
+
+                
             };
         }
     }

@@ -1,7 +1,6 @@
 ﻿using FluentValidation.Results;
 using CapstoneProject_BusinessLayer.Abstract;
-using CapstoneProject_BusinessLayer.ValidationRules;
-using CapstoneProject_EntityLayer.Concrete;
+using CapstoneProject_BusinessLayer.ValidationRules; 
 using Microsoft.AspNetCore.Mvc;
 using System.IO;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -10,6 +9,9 @@ using System;
 using System.Threading.Tasks;
 using CapstoneProject_ApiLayer.Models;
 using DocumentFormat.OpenXml.Spreadsheet;
+using CapstoneProject_DataAccessLayer.Concrete;
+using System.Linq; 
+using CapstoneProject_EntityLayer.Concrete;
 
 namespace CapstoneProject.Controllers
 {
@@ -41,19 +43,7 @@ namespace CapstoneProject.Controllers
             ValidationResult result = validationRules.Validate(about);
 
             if (result.IsValid)
-            {
-
-                //if (about.Image != null)
-                //{
-                //    var extension = Path.GetExtension(appUser.ImageUrl.FileName);
-                //    var newimagename = Guid.NewGuid() + extension;
-                //    var location = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Images/", newimagename);
-                //    var stream = new FileStream(location, FileMode.Create);
-                //    appUser.ImageUrl.CopyTo(stream);
-                //    au.ImageUrl = newimagename;
-                //    user.ImageUrl = "/Images/" + newimagename;
-                //}
-
+            { 
                 _aboutService.TAdd(about);
                 return RedirectToAction("Index");
             }
@@ -86,6 +76,31 @@ namespace CapstoneProject.Controllers
         {
             var values = _aboutService.TGetByID(id);
             _aboutService.TDelete(values);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult ChangeAboutStatFalse(int id)
+        {
+            Context c = new Context();
+            var values = c.Abouts.Find(id);
+            values.Status = false;
+            c.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public IActionResult ChangeAboutStatTrue(int id)
+        {
+            Context c = new Context();
+            var val2 = c.Abouts.ToList();
+            foreach (var item in val2)
+            {
+                var v = c.Abouts.Find(item.AboutID);
+                v.Status = false;
+                c.SaveChanges();
+            }
+
+            var values = c.Abouts.Find(id);
+            values.Status = true;
+            c.SaveChanges();
             return RedirectToAction("Index");
         }
 

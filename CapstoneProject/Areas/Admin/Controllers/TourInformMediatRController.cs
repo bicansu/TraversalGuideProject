@@ -20,25 +20,29 @@ namespace CapstoneProject.Areas.Admin.Controllers
         {
             _mediator = mediator;
         }
-
+        [Route("Admin/TourInformMediatR/Index")]
         public async Task<IActionResult> Index()
         {
             var values = await _mediator.Send(new GetAllTourInformQuery());
             return View(values);
         }
         [HttpGet]
+        [Route("Admin/TourInformMediatR/GetTourInforms/{id}")]
         public async Task<IActionResult> GetTourInforms(int id)
         {
             var values = await _mediator.Send(new GetTourInformByIDQuery(id));
+            ViewBag.Image = values.Image;
             return View(values);
         }
         [HttpPost]
+       
         public async Task<IActionResult> GetTourInforms(UpdateTourInformCommand command)
         {
             await _mediator.Send(command);
             return RedirectToAction("Index");
         }
         [HttpGet]
+        [Route("Admin/TourInformMediatR/AddTourInform")]
         public IActionResult AddTourInform()
         {
             return View();
@@ -48,7 +52,7 @@ namespace CapstoneProject.Areas.Admin.Controllers
         {
             await _mediator.Send(command);
             return RedirectToAction("Index");
-        }
+        } 
         public async Task<IActionResult> DeleteTourInform(int id)
         {
             await _mediator.Send(new RemoveTourInformCommand(id));

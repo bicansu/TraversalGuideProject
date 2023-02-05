@@ -27,7 +27,7 @@ namespace CapstoneProject_BusinessLayer.DIContainer
             services.AddScoped<IBannerDal, EfBannerDal>();
 
             services.AddScoped<ITourInformaService, TourInformManager>();
-            services.AddScoped<ITourInformDal, EfITourInformDal>();
+            services.AddScoped<ITourInformDal, EfTourInformDal>();
 
             services.AddScoped<IContact3Service, Contact3Manager>();
             services.AddScoped<IContact3Dal, EfContact3Dal>();

@@ -11,7 +11,8 @@
     <div class="box-header with-border">
         <h3 class="box-title">Yeni Tur Bilgisi Ekleme Formu (CQRS MediatR)</h3>
     </div>
-    <form method="post" role="form" enctype="multipart/form-data">
+    <form method="post" role="form" action="/Admin/TourInformMediatR/AddTourInform" enctype="multipart/form-data">
+        <input type="hidden" value="true" name="Status"/>
         <div class="box-body">
             <div class="form-group">
                 <label>Başlık</label>
@@ -24,20 +25,16 @@
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label>Resim 1</label>
+                <label>Ücret</label>
+                <input type="text" class="form-control" asp-for="Price" placeholder="Ücret giriniz.">
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Resim</label>
                 <input type="file" asp-for="Image">
                 <span asp-validation-for="Image" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label>Resim 2</label>
-                <input type="file" asp-for="Image2">
-                <span asp-validation-for="Image2" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label>Resim 3</label>
-                <input type="file" asp-for="Image3">
-                <span asp-validation-for="Image3" class="text-danger"></span>
-            </div>
+           
         </div>
 
         <div class="box-footer">

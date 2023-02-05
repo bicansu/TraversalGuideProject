@@ -9,5 +9,6 @@ namespace CapstoneProject_BusinessLayer.Abstract
 {
     public interface IBannerService : IGenericService<Banner>
     {
+       
     }
 }

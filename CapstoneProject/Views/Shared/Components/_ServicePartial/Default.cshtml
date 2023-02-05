@@ -2,46 +2,29 @@
 @{
     var say = 1;
     var active = "";
-}
-<div class="services" id="service">
-    <div class="container">
-        <h2 class="text-capitalize">Eğlenceli <span>Tatil Yerlerimiz</span></h2>
-        <p>@ViewBag.ld</p>
-    </div>
-    <div class="small-container">
-        <div id="slideToNext" class="carousel slide" data-ride="carousel">
-            
-              
-                   <div class="carousel-inner">
-                        @foreach (var item in Model)
-                    {
-                    if (say == 1)
-                    {
-                        active = "active";
-                    }
-                    else
-                    {
-                        active = "";
-                    }
-                    <div class="carousel-item @active">
-                            
-                            <img src="@item.Image" class="d-block w-100 " alt="...">
-                   
-                    </div>
-                    say = say+1;
-                }
-                    </div>
-                
-               
-            <a class="carousel-control-prev" href="#slideToNext" role="button" data-slide="prev">
-                <i class="fas fa-chevron-left fa-2x"></i>
-                <span class="sr-only">Önceki</span>
-            </a>
-            <a class="carousel-control-next" href="#slideToNext" role="button" data-slide="next">
-                <i class="fas fa-chevron-right fa-2x"></i>
-                <span class="sr-only">Sonraki</span>
-            </a>
-            
-        </div>
-    </div>
-</div>
+} 
+<section id="service" class="service"> 
+	<div class="container">
+
+		<div class="service-counter text-center">
+			@foreach(var item in Model){
+			<div class="col-md-4 col-sm-4">
+				<div class="single-service-box">
+					<div class="service-img">
+						<img src="@item.Image" alt="service-icon" />
+					</div> 
+					<div class="service-content">
+						<h2>
+							<a href="#">
+								@item.Title
+							</a>
+						</h2>
+						<p>@item.Description</p>
+					</div> 
+				</div> 
+			</div> 
+			}
+			 
+		</div> 
+	</div> 
+</section> 

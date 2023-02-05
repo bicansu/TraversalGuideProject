@@ -1,57 +1,59 @@
 ﻿@model List<About>
 @{
-    var say = 1;
+    Layout = null;
 }
 
+ 
+<section id="spo" class="special-offer">
+	<div class="container">
+		<div class="special-offer-content">
+			<div class="row">
+				<div class="col-sm-8">
+					<div class="single-special-offer">
+						@foreach(var item in Model){
+						<div class="single-special-offer-txt">
+							<h2>@item.Title</h2>
+							<div class="packages-review special-offer-review">
+								<p>
+								 
+								</p>
+							</div><!--/.packages-review-->
+							<div class="packages-para special-offer-para">
+								<p>
+									<span>
+										<i class="fa fa-angle-right"></i> @item.ShortDescription
+									</span>
+									 
+								</p>
+							 
+								<p class="offer-para">
+									@item.LongDescription					
+								</p>
+							</div> 
+							<div class="offer-btn-group">
+								 
+								<div class="about-btn">
+								 
+								</div><!--/.about-btn-->
+							</div><!--/.offer-btn-group-->
+						</div><!--/.single-special-offer-txt-->
+						}
+					</div><!--/.single-special-offer-->
+				</div><!--/.col-->
+				<div class="col-sm-4">
+					<div class="single-special-offer">
+						<div class="single-special-offer-bg">
+							<img src="~/UserTemplate/assets/images/offer/offer-shape.png" alt="offer-shape">
+						</div><!--/.single-special-offer-bg-->
+						<div class="single-special-shape-txt">
+							<h3> </h3>
+							<h4><span> </span><br> </h4>
+							<p><span> </span><br>     </p>
+						</div><!--/.single-special-shape-txt-->
+					</div><!--/.single-special-offer-->
+				</div><!--/.col-->
+			</div><!--/.row-->
+		</div><!--/.special-offer-content-->
+	</div><!--/.container-->
 
-<style>
-                .abouttexts{
-                    color:white;
-                    background-color: #bd8cbf;
-                    width:200px;
-                    font-size: 17px;
-                    text-align: center;
-                    height:25px;
-                }
-                .aboutcont{ 
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                }
-                
-        </style>
-        <div class="about-us" id="about">
-            <div class="small-container">
-            <h2 class = "text-center">Mevsimlere<span> Göre Tatiller</span></h2>
-                <p class="text-center"></p>
-                <div class="col-md-12 aboutcont"  > 
-                            <div class="col-md-6 text-left" style="float:left;display: flex;flex-direction: row;">
-                                @foreach (var item in Model)
-                                 {
-                                if (say <= 3)
-                                 {
-                                <div style="width:250px;">
-                                <img src="@item.Image" style="width:200px;height:100px;">
-                                    <h5 class="text-uppercase abouttexts">@item.Title</h5>
-                                </div>
-                                 }
-                                say = say + 1;
-                                 }
-                                
-                            </div>
-                            <div class="col-lg-6 col-12 text-center">
-                            <h4 class="text-uppercase">Haftasonu <span>Tatili</span></h4>
-                            <p style="margin:auto">@ViewBag.ld</p>
-                            @*<button class="text-center"><a href="#" class="text-capitalize">book now</a></button>*@
-                             </div>
-                       
-                    
-                </div>
-                <div class="first"></div>
-                <div class="second"></div>
-            </div>
-        </div>
-
-
-
-
+</section> 

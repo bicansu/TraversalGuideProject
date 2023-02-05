@@ -1,4 +1,4 @@
-﻿using CapstoneProject_EntityLayer.Concrete;
+﻿ using CapstoneProject_EntityLayer.Concrete;
 using FluentValidation;
 using System;
 using System.Collections.Generic;

@@ -1,0 +1,42 @@
+﻿@model List<Banner>
+@{
+    Layout = null;
+}
+
+<style>
+	.about-us {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		
+		background: url(@ViewBag.Image)no-repeat;
+		background-size: cover;
+		background-position: center;
+		min-height: 650px;
+	}
+
+</style>
+<section id="home" class="about-us">
+	<div class="container">
+		<div class="about-us-content">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="single-about-us">
+						<div class="about-us-txt">
+							<h2>
+								@ViewBag.Title
+							</h2>
+							<div class="about-btn">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-0">
+					<div class="single-about-us">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section> 

@@ -34,6 +34,7 @@ namespace CapstoneProject.CQRS.Handlers.TravelAgencyHandlers
             _context.TravelAgencys.Add(new TravelAgency
                 { 
                 TravelAgencyID = command.TravelAgencyID,
+                Title = command.Title,
                 Description = command.Description,
                 Image = imageName
             } );

@@ -34,6 +34,7 @@ namespace CapstoneProject.CQRS.Handlers.TravelAgencyHandlers
                 imageName = "";
             }
             values.Description = command.description;
+            values.Title = command.title;
             values.Image = imageName;
             _context.SaveChanges();
         }

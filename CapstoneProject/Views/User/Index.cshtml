@@ -5,12 +5,12 @@
 }
 @*Uzun yazmak istemiyorsak mutlaka Shared klosörünün altında Components klosörünün altında ilgili view olması gereklidir.*@
 
-@await Component.InvokeAsync("_AboutPartial") 
-
+@await Component.InvokeAsync("_BannerPartial") 
+  
 @await Component.InvokeAsync("_ServicePartial")
-
-@await Component.InvokeAsync("_AgencyPartial")
-
-@await Component.InvokeAsync("_StatisticsPartial")
-
-@await Component.InvokeAsync("_ContactPartial")
+@*@await Component.InvokeAsync("_GalleryPartial")*@
+@await Component.InvokeAsync("_PackagesPartial")
+@*@await Component.InvokeAsync("_TestemonialPartial")*@
+@await Component.InvokeAsync("_AboutPartial") 
+@*@await Component.InvokeAsync("_BlogPartial") *@
+@await Component.InvokeAsync("_SubscribePartial")

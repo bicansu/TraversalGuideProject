@@ -9,5 +9,7 @@ namespace CapstoneProject_BusinessLayer.Abstract
 {
     public interface IAboutService:IGenericService<About>
     {
+        List<About> TGetStatTrue();
+        
     }
 }

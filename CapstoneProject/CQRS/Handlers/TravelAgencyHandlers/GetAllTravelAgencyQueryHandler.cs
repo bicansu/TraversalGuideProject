@@ -20,6 +20,7 @@ namespace CapstoneProject.CQRS.Handlers.TravelAgencyHandlers
             {
                 id = x.TravelAgencyID,
                 description = x.Description,
+                title = x.Title,
                 image = x.Image
             }).AsNoTracking().ToList();
             return values;
