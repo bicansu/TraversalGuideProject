@@ -17,6 +17,7 @@
                     <th>#</th>
                     <th>AD SOYAD</th>
                     <th>EMAİL</th>
+                    <th>TELEFON NUMARASI</th>
                     <th>DURUM</th>
                     <th>İŞLEMLER</th>
                 </tr>
@@ -28,16 +29,16 @@
                         <td>@item.ID</td>
                         <td>@item.NameSurname</td>
                         <td>@item.Email</td>
+                        <td>@item.PhoneNumber</td>
                         <td>
                             @if(item.Status == true)
                             {
                                 <a href="/AdminSubscribe/ChangeSubStatFalse/@item.ID" class="btn btn-success"> AKTİF</a>
                             }
-                            else{
-
-                                <a href="/AdminSubscribe/ChangeSubStatTrue/@item.ID" class="btn btn-danger"> PASİF</a>
-                                
-                                }
+                            else
+                            {
+                                <a href="/AdminSubscribe/ChangeSubStatTrue/@item.ID" class="btn btn-danger"> PASİF</a>                                
+                            }
 
                         </td>
                         <td> 

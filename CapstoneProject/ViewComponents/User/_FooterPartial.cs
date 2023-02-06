@@ -12,6 +12,7 @@ namespace CapstoneProject.ViewComponents.User
             var values = ourInfoManager.TGetByID(1);
             ViewBag.address = values.Address;
             ViewBag.phone   = values.Phone;
+            ViewBag.email   = values.Email;
             return View();
         }
     }

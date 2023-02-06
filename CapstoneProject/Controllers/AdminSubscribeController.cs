@@ -1,4 +1,6 @@
 ﻿using CapstoneProject_ApiLayer.DataAccessLayer;
+using CapstoneProject_EntityLayer.Concrete;
+using DocumentFormat.OpenXml.Office2010.Excel;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Collections.Generic;
@@ -23,9 +25,10 @@ namespace CapstoneProject.Controllers
         {
             return View();
         }
-        [HttpPost]
+        [HttpPost]        
         public async Task<IActionResult> AddSubscribe(SubClass p)
         {
+          
             var httpClient = new HttpClient();
             var jsonSubscribe = JsonConvert.SerializeObject(p);
             StringContent content = new StringContent(jsonSubscribe, Encoding.UTF8, "application/json");
@@ -92,9 +95,11 @@ namespace CapstoneProject.Controllers
     }
     public class SubClass
     {
+       
         public int ID { get; set; }
         public string NameSurname { get; set; }
         public string Email { get; set; }
+        public string PhoneNumber { get; set; }
         public bool Status { get; set; }
     }
 }

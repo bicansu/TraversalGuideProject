@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MimeKit;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace CapstoneProject.Controllers
@@ -130,13 +131,24 @@ namespace CapstoneProject.Controllers
                 var result = await _signInManager.PasswordSignInAsync(p.username, p.password, false, true);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "AdminHome");
+					var user = _userManager.Users.FirstOrDefault(x => x.UserName == p.username);
+					var role = await _userManager.GetRolesAsync(user);
+                    if (role.Contains("Admin"))
+                    {
+                        return RedirectToAction("Index", "AdminHome");
+                    }
+					else if (role.Contains("Member"))
+					{
+						return RedirectToAction("Index", "Login");
+					}
+                     
                 }
                 else
                 {
-                    return RedirectToAction("SignIn", "AdminLogin");
-                }
-            }
+					ModelState.AddModelError("username", "Geçersiz kullanıcı adı.");
+
+				}
+			}
             return View();
         }
         public async Task<IActionResult> SignOut()

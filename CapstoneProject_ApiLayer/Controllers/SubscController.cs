@@ -77,6 +77,7 @@ namespace CapstoneProject_ApiLayer.Controllers
             {
                 sb.NameSurname = subscribe.NameSurname;
                 sb.Email = subscribe.Email;
+                sb.PhoneNumber = subscribe.PhoneNumber;
                 sb.Status = subscribe.Status;
                 c.Update(sb);
                 c.SaveChanges();

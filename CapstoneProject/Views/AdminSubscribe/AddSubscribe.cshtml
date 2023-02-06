@@ -8,7 +8,7 @@
     <div class="box-header with-border">
         <h3 class="box-title">Yeni Abone</h3>
     </div>
-    <form method="post" role="form">
+    <form method="post" asp-action="AddSubscribe" asp-controller="AdminSubscribe">
         <div class="box-body">
             <div class="form-group">
                 <label>Abone Adı Soyadı</label>
@@ -17,10 +17,14 @@
                 <div class="form-group">
                 <label>Abone Email</label>
                 <input type="text" class="form-control" asp-for="@Model.Email" placeholder="Email Giriniz">
-                <input type="hidden" class="form-control" asp-for="@Model.Status" value="true">
-
             </div>
-        </div>
+                <div class="form-group">
+                <label>Abone Telefon Numarası</label>
+                <input type="text" class="form-control" asp-for="@Model.PhoneNumber" placeholder="Telefon Numaranızı Giriniz">
+                <input type="hidden" class="form-control" asp-for="@Model.Status" value="true">
+                </div>
+            </div>
+       
 
         <div class="box-footer">
             <button type="submit" class="btn btn-primary">Kaydet</button>
