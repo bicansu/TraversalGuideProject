@@ -22,5 +22,8 @@ namespace CapstoneProject.Controllers
            var values = c.Users.ToList();
             return View(values);
         }
-    }
+      
+
+		 
+	}
 }

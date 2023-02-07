@@ -37,6 +37,15 @@
             <button type="submit" class="btn btn-primary"><i class="fa fa-money"></i> Hesaba Aktar</button>
         </div>
     </form>
+
+    @if(ViewBag.sonucBasarili!="")
+    {
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h4><i class="icon fa fa-check"></i> BAŞARILI!</h4>
+            @ViewBag.sonucBasarili
+        </div>
+    } 
 </div>
 
 <script>

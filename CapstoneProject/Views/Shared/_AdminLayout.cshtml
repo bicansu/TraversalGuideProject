@@ -10,7 +10,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Seyahat Acentesi</title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <link rel="stylesheet" href="~/AdminTemplate/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  @*<link rel="stylesheet" href="~/AdminTemplate/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="~/AdminTemplate/bower_components/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="~/AdminTemplate/bower_components/Ionicons/css/ionicons.min.css"> 
   <link rel="stylesheet" href="~/AdminTemplate/dist/css/AdminLTE.min.css">
@@ -23,6 +23,29 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     <link rel="stylesheet" href="~/AdminTemplate/bower_components/fullcalendar/dist/fullcalendar.min.css">
     <link rel="stylesheet" href="~/AdminTemplate/bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
+*@
+    <link rel="stylesheet" href="~/AdminTemplate/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/AdminTemplate/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/AdminTemplate/bower_components/Ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/AdminTemplate/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="~/AdminTemplate/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="~/AdminTemplate/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="~/AdminTemplate/plugins/iCheck/all.css">
+    <link rel="stylesheet" href="~/AdminTemplate/bower_components/select2/dist/css/select2.min.css">
+    <link rel="stylesheet" href="~/AdminTemplate/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+
+    <link rel="stylesheet" href="~/AdminTemplate/plugins/timepicker/bootstrap-timepicker.min.css">
+    <script src="~/AdminTemplate/bower_components/jquery/dist/jquery.min.js"></script>
+
+    <script src="~/AdminTemplate/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/AdminTemplate/dist/js/adminlte.min.js"></script>
+
+
+    <link rel="stylesheet" href="~/AdminTemplate/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="~/AdminTemplate/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -238,203 +261,444 @@
   <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
-
-<!-- jQuery 3 -->
-<script src="~/AdminTemplate/bower_components/jquery/dist/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="~/AdminTemplate/bower_components/jquery-ui/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button);
-</script>
-<script src="~/AdminTemplate/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/AdminTemplate/bower_components/moment/moment.js"></script>
+    <!-- jQuery 3 -->
+    <script src="~/AdminTemplate/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="~/AdminTemplate/bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button);
+    </script>
+    <script src="~/AdminTemplate/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="~/AdminTemplate/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="~/AdminTemplate/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<script src="~/AdminTemplate/bower_components/raphael/raphael.min.js"></script>
+    <script src="~/AdminTemplate/bower_components/raphael/raphael.min.js"></script>
 
-<script src="~/AdminTemplate/bower_components/morris.js/morris.min.js"></script>
-<script src="~/AdminTemplate/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
- 
-<script src="~/AdminTemplate/bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
-<script src="~/AdminTemplate/bower_components/moment/min/moment.min.js"></script>
-<script src="~/AdminTemplate/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
-<script src="~/AdminTemplate/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-<script src="~/AdminTemplate/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
-<script src="~/AdminTemplate/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="~/AdminTemplate/bower_components/morris.js/morris.min.js"></script>
+    <script src="~/AdminTemplate/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
 
-<script src="~/AdminTemplate/bower_components/fastclick/lib/fastclick.js"></script>
-<script src="~/AdminTemplate/dist/js/adminlte.min.js"></script>  
-<script src="~/AdminTemplate/dist/js/demo.js"></script>
-<!-- DataTables -->
-<script src="~/AdminTemplate/bower_components/select2/dist/js/select2.full.min.js"></script>
-    <script src="~/AdminTemplate/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+    <script src="~/AdminTemplate/bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
 
+    <script src="~/AdminTemplate/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="~/AdminTemplate/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="~/AdminTemplate/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+    <script src="~/AdminTemplate/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+
+    <script src="~/AdminTemplate/bower_components/fastclick/lib/fastclick.js"></script>
+    <script src="~/AdminTemplate/dist/js/adminlte.min.js"></script>
+    <script src="~/AdminTemplate/dist/js/demo.js"></script>
+    <!-- DataTables -->
+    <script src="~/AdminTemplate/bower_components/select2/dist/js/select2.full.min.js"></script>
+
+
+
+
+
+    <script src="~/AdminTemplate/bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script src="~/AdminTemplate/bower_components/fullcalendar/dist/fullcalendar.js"></script>
+    <script src="~/AdminTemplate/bower_components/fullcalendar/dist/locale/tr.js"></script>
+
+
+
+    @*<script src="~/AdminTemplate/bower_components/moment/moment.js"></script>
+    <script src="~/AdminTemplate/bower_components/fullcalendar/dist/fullcalendar.js"></script>
+    <script src="~/AdminTemplate/bower_components/fullcalendar/dist/locale/tr.js"></script>
+
+    <script src="~/AdminTemplate/bower_components/jquery-ui/jquery-ui.min.js"></script>*@
     <script>
-        $(function () {
 
-            /* initialize the external events
+
+
+
+
+
+        /* initialize the external events
              -----------------------------------------------------------------*/
-            function init_events(ele) {
-                ele.each(function () {
+        function init_events(ele) {
+            ele.each(function () {
 
-                    // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
-                    // it doesn't need to have a start or end
-                    var eventObject = {
-                        title: $.trim($(this).text()) // use the element's text as the event title
-                    }
+                // it doesn't need to have a start or end
+                var eventObject = {
+                    title: $.trim($(this).text()) // use the element's text as the event title
+                }
 
-                    // store the Event Object in the DOM element so we can get to it later
-                    $(this).data('eventObject', eventObject)
+                // store the Event Object in the DOM element so we can get to it later
+                $(this).data('eventObject', eventObject)
 
-                    // make the event draggable using jQuery UI
-                    $(this).draggable({
-                        zIndex: 1070,
-                        revert: true, // will cause the event to go back to its
-                        revertDuration: 0  //  original position after the drag
-                    })
-
+                // make the event draggable using jQuery UI
+                $(this).draggable({
+                    zIndex: 1070,
+                    revert: true, // will cause the event to go back to its
+                    revertDuration: 0 //  original position after the drag
                 })
+
+            })
+
+
+        }
+
+
+
+        init_events($('#external-events div.external-event'));
+
+
+        var date = new Date()
+        var d = date.getDate(),
+            m = date.getMonth(),
+            y = date.getFullYear()
+
+        $('#calendar').fullCalendar({
+            header: {
+                left: 'prev,next ',
+                center: 'title',
+                right: ''
+            },
+            lang: 'tr',
+            viewRender: function (view, element) {
+
+
+            },
+            buttonText: {
+                today: 'Bugün',
+                month: 'Ay',
+                week: 'Hafta',
+                day: 'Gün'
+            },
+            editable: true,
+
+            eventDrop: function (info) {
+                //console.log("eventDrop");
+                calendarEventDragged(info.vid, info.start._d);  // Takvimde eventi tarihler arası sürükle
+
+            },
+            eventClick: function (info) {
+
+                eventDuzenleModal(info.vid);  // Takvimde event düzenle modal
+
+
+            },
+            eventRemove: function (calEvent, jsEvent, view) {
+                console.log('removeClick id: ' + calEvent.id);
+            },
+            droppable: true, // this allows things to be dropped onto the calendar !!!
+            drop: function (date, allDay) { // this function is called when something is dropped
+
+
+                // retrieve the dropped element's stored Event Object
+                var originalEventObject = $(this).data('eventObject')
+
+                // we need to copy it, so that multiple events don't have a reference to the same object
+                var copiedEventObject = $.extend({}, originalEventObject)
+
+                // assign it the date that was reported
+                copiedEventObject.start = date
+                copiedEventObject.allDay = allDay
+                copiedEventObject.backgroundColor = $(this).css('background-color')
+                copiedEventObject.borderColor = $(this).css('border-color')
+
+
+                // render the event on the calendar
+                // $('#calendar').fullCalendar('renderEvent', copiedEventObject, true)
+
+                // is the "remove after drop" checkbox checked?
+                if ($('#drop-remove').is(':checked')) {
+                    $(this).remove()
+                }
+
+                let dObj = new Date(date._d);
+                let yr = dObj.getFullYear();
+                let mt = dObj.getMonth() + 1;
+                let dt2 = dObj.getDate();
+
+                let pMonth = mt.toString();
+                if (pMonth.length < 2) {
+                    pMonth = "0" + pMonth;
+                }
+
+                let pDate = dt2.toString();
+                if (pDate.length < 2) {
+                    pDate = "0" + pDate;
+                }
+
+                let yTarih = `${yr}-${pMonth}-${pDate}`;
+
+
+
+
+                YeniEtkinlikEkleModal($(this)[0].id, yTarih);  //Takvime Sürükle, Ekle Modal
+
+                //console.log(copiedEventObject);
+                //$('#calendar').fullCalendar('removeEvent', copiedEventObject,true);
+
+            }
+        })
+
+
+
+        var currColor = '#3c8dbc';
+
+        //Color chooser button
+        var colorChooser = $('#color-chooser-btn')
+        $('#color-chooser > li > a').click(function (e) {
+            e.preventDefault()
+            currColor = $(this).css('color')
+            $('#add-new-event').css({
+                'background-color': currColor,
+                'border-color': currColor
+            })
+            $("#renksecimi").val($(this).css("color"));
+        })
+        $('#add-new-event').click(function (e) {
+            e.preventDefault()
+            //Get value and make sure it is not null
+            var val = $('#new-event').val()
+            if (val.length == 0) {
+                return
             }
 
-            init_events($('#external-events div.external-event'))
+            //Create events
+            var event = $('<div />')
+            event.css({
+                'background-color': currColor,
+                'border-color': currColor,
+                'color': '#fff'
+            }).addClass('external-event')
+            event.html(val)
+            $('#external-events').prepend(event)
 
-            /* initialize the calendar
-             -----------------------------------------------------------------*/
-            //Date for the calendar events (dummy data)
-            var date = new Date()
-            var d = date.getDate(),
-                m = date.getMonth(),
-                y = date.getFullYear()
-            $('#calendar').fullCalendar({
-                header: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'month,agendaWeek,agendaDay'
-                },
-                buttonText: {
-                    today: 'today',
-                    month: 'month',
-                    week: 'week',
-                    day: 'day'
-                },
-                //Random default events
-                events: [
-                    {
-                        title: 'All Day Event',
-                        start: new Date(y, m, 1),
-                        backgroundColor: '#f56954', //red
-                        borderColor: '#f56954' //red
-                    },
-                    {
-                        title: 'Long Event',
-                        start: new Date(y, m, d - 5),
-                        end: new Date(y, m, d - 2),
-                        backgroundColor: '#f39c12', //yellow
-                        borderColor: '#f39c12' //yellow
-                    },
-                    {
-                        title: 'Meeting',
-                        start: new Date(y, m, d, 10, 30),
-                        allDay: false,
-                        backgroundColor: '#0073b7', //Blue
-                        borderColor: '#0073b7' //Blue
-                    },
-                    {
-                        title: 'Lunch',
-                        start: new Date(y, m, d, 12, 0),
-                        end: new Date(y, m, d, 14, 0),
-                        allDay: false,
-                        backgroundColor: '#00c0ef', //Info (aqua)
-                        borderColor: '#00c0ef' //Info (aqua)
-                    },
-                    {
-                        title: 'Birthday Party',
-                        start: new Date(y, m, d + 1, 19, 0),
-                        end: new Date(y, m, d + 1, 22, 30),
-                        allDay: false,
-                        backgroundColor: '#00a65a', //Success (green)
-                        borderColor: '#00a65a' //Success (green)
-                    },
-                    {
-                        title: 'Click for Google',
-                        start: new Date(y, m, 28),
-                        end: new Date(y, m, 29),
-                        url: 'http://google.com/',
-                        backgroundColor: '#3c8dbc', //Primary (light-blue)
-                        borderColor: '#3c8dbc' //Primary (light-blue)
-                    }
-                ],
-                editable: true,
-                droppable: true, // this allows things to be dropped onto the calendar !!!
-                drop: function (date, allDay) { // this function is called when something is dropped
+            //Add draggable funtionality
+            init_events(event)
 
-                    // retrieve the dropped element's stored Event Object
-                    var originalEventObject = $(this).data('eventObject')
-
-                    // we need to copy it, so that multiple events don't have a reference to the same object
-                    var copiedEventObject = $.extend({}, originalEventObject)
-
-                    // assign it the date that was reported
-                    copiedEventObject.start = date
-                    copiedEventObject.allDay = allDay
-                    copiedEventObject.backgroundColor = $(this).css('background-color')
-                    copiedEventObject.borderColor = $(this).css('border-color')
-
-                    // render the event on the calendar
-                    // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
-                    $('#calendar').fullCalendar('renderEvent', copiedEventObject, true)
-
-                    // is the "remove after drop" checkbox checked?
-                    if ($('#drop-remove').is(':checked')) {
-                        // if so, remove the element from the "Draggable Events" list
-                        $(this).remove()
-                    }
-
-                }
-            })
-
-            /* ADDING EVENTS */
-            var currColor = '#3c8dbc' //Red by default
-            //Color chooser button
-            var colorChooser = $('#color-chooser-btn')
-            $('#color-chooser > li > a').click(function (e) {
-                e.preventDefault()
-                //Save color
-                currColor = $(this).css('color')
-                //Add color effect to button
-                $('#add-new-event').css({ 'background-color': currColor, 'border-color': currColor })
-            })
-            $('#add-new-event').click(function (e) {
-                e.preventDefault()
-                //Get value and make sure it is not null
-                var val = $('#new-event').val()
-                if (val.length == 0) {
-                    return
-                }
-
-                //Create events
-                var event = $('<div />')
-                event.css({
-                    'background-color': currColor,
-                    'border-color': currColor,
-                    'color': '#fff'
-                }).addClass('external-event')
-                event.html(val)
-                $('#external-events').prepend(event)
-
-                //Add draggable funtionality
-                init_events(event)
-
-                //Remove event from text input
-                $('#new-event').val('')
-            })
+            //Remove event from text input
+            $('#new-event').val('')
         })
-    </script>
-<script>
-   $('.select2').select2();
-</script>
 
-    <script>
+
+        function calendarEventDragged(CompanyEventID, tarih) {
+            let dateObj = new Date(tarih);
+            let year = dateObj.getFullYear();
+            let month = dateObj.getMonth() + 1;
+            let date = dateObj.getDate();
+
+            let paddedMonth = month.toString();
+            if (paddedMonth.length < 2) {
+                paddedMonth = "0" + paddedMonth;
+            }
+
+            let paddedDate = date.toString();
+            if (paddedDate.length < 2) {
+                paddedDate = "0" + paddedDate;
+            }
+
+            let yenitarih = `${year}-${paddedMonth}-${paddedDate}`;
+            $.ajax({
+                type: "POST",
+                url: "/AdminCalendar/ChangeEventDate",
+                data: {
+                    CompanyEventID: CompanyEventID,
+                    Date: yenitarih
+                },
+                success: function (result) {
+
+
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus, errorThrown);
+                }
+            });
+        }
+
+
+        function loadEvents() {
+            $.ajax({
+                type: "POST",
+                url: "/AdminCalendar/AllCalendarVal",
+                dataType: 'json',
+                success: function (result) {
+                    let veriler = jQuery.parseJSON(result);
+                    console.log(veriler);
+                    console.log(result);
+
+                    $('#calendar').fullCalendar('removeEvents');
+                    $("#calendar").fullCalendar('addEventSource', veriler);
+                    $('#calendar').fullCalendar('rerenderEvents');
+                    $('#calendar').fullCalendar('refetchEvents');
+                    //  $('#calendar').fullCalendar('renderEvent', veriler);
+
+                },
+                error: function (e) {
+                    alert('Vardiya takvimi yüklenemedi');
+                }
+            });
+        } //loadEvents
+        loadEvents();
+        function eventDuzenleModal(CompanyEventID) {
+            $.ajax({
+                type: "POST",
+                url: "/AdminCalendar/GetSpecEvent",
+                dataType: 'json',
+                data: {
+                    CompanyEventID: CompanyEventID,
+                },
+                success: function (result) {
+                    let veriler = jQuery.parseJSON(result);
+                    console.log(veriler);
+                    for (var i = 0; i < veriler.length; i++) {
+                        $("#Title").val(veriler[i]["title2"]);
+                        $("#Description").val(veriler[i]["description"]);
+                        $("#Adress").val(veriler[i]["adress"]);
+                        $("#PhoneNumber").val(veriler[i]["phonenumber"]);
+                        $("#Day").val(veriler[i]["day"]);
+                        $("#EventName").val(veriler[i]["eventname"]);
+                        $("#EventTypeID").val(veriler[i]["eventID"]);
+                        $("#CompanyEventID").val(veriler[i]["id"]);
+                        $("#Hour").val(veriler[i]["hour"]).change();
+                    }
+                    $("#EventDuzenleModal .modal-dialog").css("width", "50%");
+                    $("#EventDuzenleModal .modal-title").html("<b> Etkinlik Güncelle </b>");
+
+                    $("#EventDuzenleModal").modal("show");
+                    $('.select2').select2();
+                    $('#Day').datepicker({
+                        locale: {
+                            format: 'YYYY-MM-DD',
+                            autoclose: true
+                        }
+                    });
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus, errorThrown);
+                }
+            });
+        }
+
+        function DeleteCompanyEvent(CompanyEventID) {
+            $.ajax({
+                type: "POST",
+                url: "/AdminCalendar/DeleteCompanyEvent",
+                data: {
+                    CompanyEventID: CompanyEventID,
+                },
+                success: function (result) {
+                    location.reload();
+
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus, errorThrown);
+                }
+            });
+        }
+        function YeniEtkinlikEkleModal(etkinliktipid, tarih) {
+            var iddizi = etkinliktipid.split("-");
+            var val = iddizi[1];
+            $.ajax({
+                type: "GET",
+                url: "/AdminCalendar/EtkinlikEkle",
+                dataType: 'json',
+                data: {
+                    val: val,
+                },
+                success: function (result) {
+                    let veriler = jQuery.parseJSON(result);
+                    console.log(veriler["EventTypeID"]);
+                    $("#EventEkleModal .modal-dialog").css("width", "50%");
+                    $("#EventEkleModal .modal-title").html("<b> Etkinlik Ekle </b>");
+                    var sHtml = "";
+                    sHtml += '<form method="post" role="form" action="/AdminCalendar/AddEvent" >';
+                    sHtml += ' <div class="box-body">';
+                    sHtml += ' <div class="form-group">';
+                    sHtml += '   <div class="input-group" style="width:100%">';
+                    sHtml += ' 	<span class="input-group-addon" style="width:110px; text-align:left;"><i class="fa fa-pencil"></i> Etkinlik Tipi</span>';
+                    sHtml += '      <input type="text" readonly class="form-control" value="' + veriler["Name"] + '" >';
+                    sHtml += '      <input type="hidden" class="form-control" name="EventTypeID" value ="' + veriler["EventTypeID"] + '">';
+                    sHtml += '      <input type="hidden" class="form-control" name="EventColor" value ="' + veriler["EventColor"] + '">';
+                    sHtml += ' </div>';
+                    sHtml += ' </div>';
+                    sHtml += ' <div class="form-group">';
+                    sHtml += '   <div class="input-group" style="width:100%">';
+                    sHtml += ' 	<span class="input-group-addon" style="width:110px; text-align:left;"><i class="fa fa-pencil"></i> Başlık</span>';
+                    sHtml += '      <input type="text" class="form-control" name="Title" placeholder="Başlık giriniz.">';
+                    sHtml += ' </div>';
+                    sHtml += ' </div>';
+                    sHtml += ' <div class="form-group">';
+                    sHtml += '   <div class="input-group" style="width:100%">';
+                    sHtml += ' 	<span class="input-group-addon" style="width:110px; text-align:left;"><i class="fa fa-pencil"></i> Açıklama</span>';
+                    sHtml += '   <input type="text" class="form-control" name="Description" placeholder="Açıklama giriniz.">';
+                    sHtml += '   </div>';
+                    sHtml += '   </div>';
+                    sHtml += '   <div class="form-group">';
+                    sHtml += '   <div class="input-group" style="width:100%">';
+                    sHtml += ' 	<span class="input-group-addon" style="width:110px; text-align:left;"><i class="fa fa-map-marker"></i> Yer</span>';
+                    sHtml += '       <input type="text" class="form-control" name="Adress" placeholder="Yer giriniz.">';
+                    sHtml += '     </div>';
+                    sHtml += '     </div>';
+                    sHtml += '   <div class="form-group">';
+                    sHtml += '   <div class="input-group" style="width:100%">';
+                    sHtml += ' 	<span class="input-group-addon" style="width:110px; text-align:left;"><i class="fa fa-phone"></i> Tel</span>';
+                    sHtml += '       <input type="text" class="form-control" name="PhoneNumber" placeholder="İrtibat numarası giriniz.">';
+                    sHtml += '     </div>';
+                    sHtml += '     </div>';
+                    sHtml += '   <div class="form-group">';
+                    sHtml += '   <div class="input-group" style="width:100%">';
+                    sHtml += ' 	<span class="input-group-addon" style="width:110px; text-align:left;"><i class="fa fa-clock-o"></i> Tarih</span>';
+                    sHtml += '       <input type="text" readonly class="form-control" name="Day"  value="' + tarih + '" placeholder="Tarih giriniz.">';
+                    sHtml += '     </div>';
+                    sHtml += '     </div>';
+                    sHtml += '   <div class="form-group">';
+                    sHtml += '   <div class="input-group" style="width:100%">';
+                    sHtml += ' 	<span class="input-group-addon" style="width:110px; text-align:left;"><i class="fa fa-clock-o"></i> Saat</span>';
+                    sHtml += '       <select class="form-control select2"  style="width:100%;" name="Hour">';
+                    sHtml += '       <option value="08:00">08:00</option>';
+                    sHtml += '       <option value="09:00">09:00</option>';
+                    sHtml += '       <option value="10:00">10:00</option>';
+                    sHtml += '       <option value="11:00">11:00</option>';
+                    sHtml += '       <option value="12:00">12:00</option>';
+                    sHtml += '       <option value="13:00">13:00</option>';
+                    sHtml += '       <option value="14:00">14:00</option>';
+                    sHtml += '       <option value="15:00">15:00</option>';
+                    sHtml += '       <option value="16:00">16:00</option>';
+                    sHtml += '       <option value="17:00">17:00</option>';
+                    sHtml += '       <option value="18:00">18:00</option>';
+                    sHtml += '       <option value="19:00">19:00</option>';
+                    sHtml += '       <option value="20:00">20:00</option>';
+                    sHtml += '       <option value="21:00">21:00</option>';
+                    sHtml += '       <option value="22:00">22:00</option>';
+                    sHtml += '       </select>';
+                    sHtml += '     </div>';
+                    sHtml += '     </div>';
+                    sHtml += '  </div>  ';
+                    sHtml += '  <div class="box-footer">';
+                    sHtml += '     <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Kaydet</button>';
+                    sHtml += ' </div>';
+                    sHtml += '  </form>';
+
+                    $("#EventEkleModal .modal-body").html(sHtml);
+                    $("#EventEkleModal").modal("show");
+                    $('.select2').select2();
+
+                    $('#tariharaligi').datepicker({
+                        locale: {
+                            format: 'YYYY-MM-DD',
+                            autoclose: true
+                        }
+                    });
+
+                    $('.select2').select2();
+                    $('.timepicker').timepicker({
+                        showInputs: false,
+                        minuteStep: 5,
+                        defaultTime: '10:00',
+                        showSeconds: false,
+                        showMeridian: false,
+                        snapToStep: true
+                    });
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus, errorThrown);
+                }
+            });
+        }
         $('#example1').DataTable({
             'paging': true,
             'lengthChange': false,
@@ -442,6 +706,9 @@
             'ordering': true,
             'info': true,
             'autoWidth': true
+        });
+        $('.datepicker').datepicker({
+            format: 'yyyy-mm-dd'
         });
     </script>
     @RenderSection("Scripts", required: false)

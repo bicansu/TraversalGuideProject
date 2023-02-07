@@ -1,6 +1,7 @@
 ﻿using CapstoneProject_DTOLayer.DTOs.AdminDto;
 using CapstoneProject_EntityLayer.Concrete;
 using MailKit.Net.Smtp;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MimeKit;
@@ -8,7 +9,8 @@ using System.Threading.Tasks;
 
 namespace CapstoneProject.Controllers
 {
-    public class AdminForgotPasswordController : Controller
+	[AllowAnonymous]
+	public class AdminForgotPasswordController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
 

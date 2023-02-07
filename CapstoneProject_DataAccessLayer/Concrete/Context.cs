@@ -27,6 +27,8 @@ namespace CapstoneProject_DataAccessLayer.Concrete
         public DbSet<MailRequest> MailRequests { get; set; }
         public DbSet<Visitor> Visitors { get; set; }
         public DbSet<UserCount> UserCounts { get; set; }
+        public DbSet<CompanyEvent> CompanyEvents { get; set; }
+        public DbSet<EventType> EventTypes { get; set; }
 
     }
 }

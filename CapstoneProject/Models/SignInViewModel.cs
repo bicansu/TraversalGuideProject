@@ -2,10 +2,10 @@
 
 namespace CapstoneProject.Models
 {
-    public class AdminSignInViewModel
+    public class SignInViewModel
     {
-        [Required(ErrorMessage ="Lütfen kullanıcı adını giriniz")]
-        public string username { get; set; }
+        [Required(ErrorMessage = "Lütfen mail adresinizi giriniz")]
+        public string email { get; set; }
 
         [Required(ErrorMessage = "Lütfen şifrenizi giriniz")]
         public string password { get; set; }

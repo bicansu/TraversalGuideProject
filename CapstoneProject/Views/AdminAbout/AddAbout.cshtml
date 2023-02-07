@@ -1,56 +1,39 @@
-﻿@model List<About>
+﻿@model About
 @{
     ViewData["Title"] = "Hakkımızda Ekleme";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 } 
 <div class="box box-primary">
     <div class="box-header with-border">
-        <h3 class="box-title">Bilgi</h3>&emsp;
-        <a class="btn btn-success" href="/AdminAbout/AddAbout/"><i class="fa fa-plus"></i> Yeni Ekle</a>
+        <h3 class="box-title">Yeni Hakkımızda Ekle</h3>
     </div>
-
-    <div class="box-body">
-        <table id="example1" class="table table-bordered table-striped">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Başlık</th>
-                    <th>Kısa Açıklama</th>
-                    <th>Uzun Açıklama</th>
-                    <th>Durum</th>
-                    <th>İşlemler</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>@item.AboutID</td>
-                        <td>@item.Title</td>
-                        <td>@item.ShortDescription</td>
-                        <td>@item.LongDescription</td>
-
-                        <td>
-                            @if (item.Status == true)
-                            {
-                                <a href="/AdminAbout/ChangeAboutStatFalse/@item.AboutID" class="btn btn-success"> AKTİF</a>
-                            }
-                            else
-                            {
-
-                                <a href="/AdminAbout/ChangeAboutStatTrue/@item.AboutID" class="btn btn-danger"> PASİF</a>
-
-                            }
-                        </td>
-                        <td>
-                            <a href="/AdminAbout/UpdateAbout/@item.AboutID" class="btn btn-primary">Güncelle</a>
-                            <a href="/AdminAbout/DeleteAbout/@item.AboutID" class="btn btn-danger">Sil</a>
-
-                        </td>
-
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
+    <form method="post" role="form" asp-action="AddAbout" asp-controller="AdminAbout" enctype="multipart/form-data">
+        <input type="hidden" value="false" />
+        <div class="box-body">
+            <div class="form-group">
+                <label>Başlık</label>
+                <input type="text" class="form-control" asp-for="Title" placeholder="Başlık">
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Kısa Açıklama</label>
+                <input type="text" class="form-control" asp-for="ShortDescription" placeholder="Açıklama">
+                <span asp-validation-for="ShortDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Uzun Açıklama</label>
+                <input type="text" class="form-control" asp-for="LongDescription" placeholder="Açıklama">
+                <span asp-validation-for="LongDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Uzun Açıklama</label>
+                <input type="text" class="form-control" asp-for="LongDescription" placeholder="Açıklama">
+                <span asp-validation-for="LongDescription" class="text-danger"></span>
+            </div>
+           
+        </div>
+        <div class="box-footer">
+            <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Kaydet</button>
+        </div>
+    </form>
 </div>

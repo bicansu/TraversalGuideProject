@@ -131,16 +131,16 @@ namespace CapstoneProject.Controllers
                 var result = await _signInManager.PasswordSignInAsync(p.username, p.password, false, true);
                 if (result.Succeeded)
                 {
-					var user = _userManager.Users.FirstOrDefault(x => x.UserName == p.username);
-					var role = await _userManager.GetRolesAsync(user);
-                    if (role.Contains("Admin"))
-                    {
+				/*	var user = _userManager.Users.FirstOrDefault(x => x.UserName == p.username);
+					var role = await _userManager.GetRolesAsync(user);*/
+                  /*  if (role.Contains("Admin"))
+                    {*/
                         return RedirectToAction("Index", "AdminHome");
-                    }
-					else if (role.Contains("Member"))
-					{
-						return RedirectToAction("Index", "Login");
-					}
+     //               }
+					//else
+					//{
+						//return RedirectToAction("SignIn", "AdminLogin");
+					//}
                      
                 }
                 else

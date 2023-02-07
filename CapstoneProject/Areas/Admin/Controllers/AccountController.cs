@@ -23,12 +23,14 @@ namespace CapstoneProject.Areas.Admin.Controllers
         [Route("Admin/Account/Index")]
         public IActionResult Index()
         {
+            ViewBag.sonucBasarili = "";
             var values = _accountService.TGetList();
             return View(values);
         }
         [HttpPost]
         public IActionResult Index(AccountViewModel model)
         {
+            ViewBag.sonucBasarili = "İşlem Başarı İle Gerçekleştirilmiştir.";
             var valueSender   = _accountService.TGetByID(model.SenderID);
             var valueReceiver = _accountService.TGetByID(model.ReceiverID);
 
@@ -42,6 +44,8 @@ namespace CapstoneProject.Areas.Admin.Controllers
             };
             _accountService.TMultiUpdate(modifiedAccounts);
             return RedirectToAction("Index");
+
+
         }
         public IActionResult getRList(int val)
         {

@@ -44,6 +44,12 @@ namespace CapstoneProject_BusinessLayer.DIContainer
             services.AddScoped<IAccountService, AccountManager>();
             services.AddScoped<IAccountDal, EfAccountDal>();
 
+            services.AddScoped<ICompanyEventService, CompanyEventManager>();
+            services.AddScoped<ICompanyEventDal, EfCompanyEventDal>();
+
+            services.AddScoped<IEventTypeService, EventTypeManager>();
+            services.AddScoped<IEventTypeDal, EfEventTypeDal>();
+
             services.AddScoped<IExcelService, ExcelManager>();
 
             services.AddScoped<IMailRequestService, MailRequestManager>();
