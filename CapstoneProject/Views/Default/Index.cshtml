@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewData["Title"] = "SignalR Anlık Dashbord";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+<div class="box box-primary">
+   
+    <div class="box-header with-border">
+        <h3 class="box-title">Anlık Sipariş Alım Grafiği</h3>&emsp;
+        @*<a class="btn btn-success" href="/Default/AddCity/"><i class="fa fa-plus"></i>Şehir Ekle</a>*@
+    </div>
+
+    <div class="box-body">
+
+
+
+        @*   @section Scripts
+        { <script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+        <script type="text/javascript">
+        $(document).ready(()=>{
+        var connection = new signalR.HubConnectionBuilder().withUrl("https://localhost:44364/ElectricHub").build();
+        //startup endpointte electrichub'ı bu şekilde vermiştim.
+        //hub bağlantısını başlatır.
+        connection.start().then(()=>{
+        connection.invoke("GetElectricList")//ElectricHub içinde yer alan GetElectricList'i çağırıyor
+        }).catch(err)=>{
+        console.log(err)
+        })
+        connection.on("ReceiveElectricList",(electricList)=>{
+        console.log(electricList)
+        })
+        })
+        </script>}*@
+
+           
+ 
+            <script type="text/javascript">
+                $(document).ready(() => {
+                    var electricChartList = new Array();
+                    electricChartList.push(["Tarih", "Ankara", "Bursa", "Konya", "Bakü", "İzmir"])
+                    var connection = new signalR.HubConnectionBuilder().withUrl("https://localhost:44313/ElectricHub").build();
+                    connection.start().then(() => {
+                        connection.invoke("GetElectricList");//ElectricHub içindeki metod
+                    }).catch((err) => {
+                        console.log(err);
+                    })
+                    connection.on("ReceiveElectricList", (GetElectricChartsList) => {
+                        electricChartList = electricChartList.splice(0, 1);
+                        GetElectricChartsList.forEach((item) => {
+                            electricChartList.push([item.electricDate, item.counts[0], item.counts[1], item.counts[2], item.counts[3], item.counts[4]]);
+                        })
+                        google.charts.load('current', { 'packages': ['corechart'] });
+                        google.charts.setOnLoadCallback(drawChart);
+                        /* console.log(GetElectricChartsList);*/
+                    })
+                    function drawChart() {
+                        var data = google.visualization.arrayToDataTable(electricChartList);
+                        var options = {
+                        title: 'İl/Tarih Sipariş Alım Grafiği',
+                            curveType: 'none',
+                            legend: { position: 'bottom' }
+                        };
+                        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+                        chart.draw(data, options);
+                    }
+                })
+            </script>
+            <div id="curve_chart" style="width:1200px; height:800px"></div>
+
+    </div>
+</div>
+
+

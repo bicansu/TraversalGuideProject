@@ -5,12 +5,17 @@ using CapstoneProject_EntityLayer.Concrete;
 using DocumentFormat.OpenXml.Drawing.Charts;
 using DocumentFormat.OpenXml.Office2010.Excel;
 using DocumentFormat.OpenXml.Office2010.ExcelAc;
+using DocumentFormat.OpenXml.Office2021.DocumentTasks;
+using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.Rename;
+using MimeKit;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace CapstoneProject.Controllers
 {
@@ -41,7 +46,7 @@ namespace CapstoneProject.Controllers
            
         }
         [HttpPost]
-        public IActionResult AddEvent(AdminEventModel p)
+        public async Task<IActionResult> AddEvent(AdminEventModel p)
         {
             CompanyEvent c = new CompanyEvent();
             c.Title = p.Title;
@@ -56,7 +61,36 @@ namespace CapstoneProject.Controllers
 
             _companyEventService.TAdd(c);
 
-             
+            //Tüm kullanıcılara mail gönder 
+            var httpClient = new HttpClient();
+            var responseMessage = await httpClient.GetAsync("https://localhost:44313/api/Subsc");
+            var jsonString = await responseMessage.Content.ReadAsStringAsync();
+            var aboneList = JsonConvert.DeserializeObject<List<SubClass>>(jsonString);
+
+            foreach (var rs in aboneList)
+            {
+                MimeMessage mimeMessage = new MimeMessage();
+                MailboxAddress mailboxAddress = new MailboxAddress("Admin", "cnssrc11@gmail.com");
+                mimeMessage.From.Add(mailboxAddress);
+                MailboxAddress mailboxAddressTo = new MailboxAddress("User", rs.Email);
+                mimeMessage.To.Add(mailboxAddressTo);
+
+                var bodyBuilder = new BodyBuilder();
+                bodyBuilder.TextBody = p.Description + "\n Etkinlik Tarihi: " + DateTime.Parse(zaman) + " İrtibat Numarası: " + p.PhoneNumber;
+                mimeMessage.Body = bodyBuilder.ToMessageBody();
+
+                //mimeMessage.Body = mailRequest.Body
+                mimeMessage.Subject = "Etkinlik Bildirimi - " + p.Title;
+
+                SmtpClient client = new SmtpClient();
+                client.Connect("smtp.gmail.com", 587, false);
+                client.Authenticate("cnssrc11@gmail.com", "iocezmifqhnozczc");
+                client.Send(mimeMessage);
+                client.Disconnect(true);
+
+                ViewBag.sonucBasarili = "İşlem Başarı İle Gerçekleştirilmiştir.";
+            }
+
             return RedirectToAction("Index");
         }
         [HttpPost]
@@ -149,7 +183,7 @@ namespace CapstoneProject.Controllers
 
         }
         [HttpPost]
-        public IActionResult EditEvent(AdminEventModel p)
+        public async Task<IActionResult> EditEvent(AdminEventModel p)
         {
           
             CompanyEvent c = new CompanyEvent();
@@ -163,6 +197,38 @@ namespace CapstoneProject.Controllers
             c.Status = true;
 
             _companyEventService.TUpdate(c);
+
+            //Tüm kullanıcılara mail gönder 
+            var httpClient = new HttpClient();
+            var responseMessage = await httpClient.GetAsync("https://localhost:44313/api/Subsc");
+            var jsonString = await responseMessage.Content.ReadAsStringAsync();
+            var aboneList = JsonConvert.DeserializeObject<List<SubClass>>(jsonString);
+
+            foreach (var rs in aboneList)
+            {
+
+                MimeMessage mimeMessage = new MimeMessage();
+                MailboxAddress mailboxAddress = new MailboxAddress("Admin", "cnssrc11@gmail.com");
+                mimeMessage.From.Add(mailboxAddress);
+                MailboxAddress mailboxAddressTo = new MailboxAddress("User", rs.Email);
+                mimeMessage.To.Add(mailboxAddressTo);
+
+                var bodyBuilder = new BodyBuilder();
+                bodyBuilder.TextBody = p.Description + "\n Etkinlik Tarihi: " + DateTime.Parse(p.Day.ToString() + " " + p.Hour) + " İrtibat Numarası: " + p.PhoneNumber + " olarak güncellenmiştir.";
+                mimeMessage.Body = bodyBuilder.ToMessageBody();
+
+                //mimeMessage.Body = mailRequest.Body
+                mimeMessage.Subject = "(DÜZELTME)Etkinlik Bildirimi - " + p.Title;
+
+                SmtpClient client = new SmtpClient();
+                client.Connect("smtp.gmail.com", 587, false);
+                client.Authenticate("cnssrc11@gmail.com", "iocezmifqhnozczc");
+                client.Send(mimeMessage);
+
+                client.Disconnect(true);
+
+                ViewBag.sonucBasarili = "İşlem Başarı İle Gerçekleştirilmiştir.";
+            }
             return RedirectToAction("Index");
         }
         [HttpPost]

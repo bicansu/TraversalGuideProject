@@ -53,7 +53,7 @@ namespace CapstoneProject.Controllers
         {
             MimeMessage mimeMessage = new MimeMessage();
 
-            MailboxAddress mailboxAddressFrom = new MailboxAddress("Admin", "cnsrc11@gmail.com");
+            MailboxAddress mailboxAddressFrom = new MailboxAddress("Admin", "cnssrc11@gmail.com");
             mimeMessage.From.Add(mailboxAddressFrom); //Mailin kimden gönderildiği
 
             MailboxAddress mailboxAddressTo = new MailboxAddress("User", emailadres);
@@ -67,7 +67,7 @@ namespace CapstoneProject.Controllers
 
             SmtpClient smtp = new SmtpClient(); //SİMPLE MAİL TRANSFER PROTOCOL
             smtp.Connect("smtp.gmail.com", 587, false);
-            smtp.Authenticate("cnsrc11@gmail.com", "rvjtklrwwmwfhlin");
+            smtp.Authenticate("cnssrc11@gmail.com", "iocezmifqhnozczc");
             smtp.Send(mimeMessage);
             smtp.Disconnect(true);
         }

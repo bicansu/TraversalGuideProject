@@ -1,0 +1,98 @@
+﻿@model IEnumerable<ApiHotelViewModel2.Result>
+@{
+    ViewData["Title"] = "ApiHotel";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+    string scoreWord = "";
+}
+
+<link rel="stylesheet" href="~/AdminTemplate/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+<script src="~/AdminTemplate/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+
+
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title">Api Popüler Otel Listesi </h3>&emsp;      
+    </div>
+
+    <div class="box-body">
+        <form method="post">
+            <div class="form-group">
+            <div class="input-group" style="width:30%">
+                <span class="input-group-addon" style="width:110px; text-align:left;"><i class="fa fa-hourglass-start"></i> Check In</span>
+                    <input type="text" class="form-control datepicker" name="checkinDate" id="checkin" placeholder="Giriş tarihi giriniz." required>
+            </div>
+        </div>
+         <div class="form-group">
+            <div class="input-group" style="width:30%">
+                <span class="input-group-addon" style="width:110px; text-align:left;"><i class="fa fa-hourglass-end"></i> Check Out</span>
+                    <input type="text" class="form-control datepicker" name="checkoutDate" id="checkout" placeholder="Çıkış tarihi giriniz." required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group" style="width:30%">
+                    <span class="input-group-addon" style="width:110px; text-align:left;"><i class="fa fa-users"></i>Kişi Sayısı</span>
+                    <input type="number" class="form-control" name="adults_number" id="adults_number" placeholder="Kişi sayısı giriniz." / required>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Veri Getir</button>
+        </form>
+          
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Otel Adı</th>
+                    <th>Otel Puanı</th>
+                    <th>Otel Değerlendirmesi</th>
+                   @* <th>Detaylar</th>*@
+
+                </tr>
+            </thead>
+            <tbody>
+                @if(Model?.Any()==true)
+                {
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@count</td>
+                            <td>@item.name</td>
+                            <td>@item.reviewScore</td>
+                            @{
+                                if (item.reviewScoreWord == "Very good")
+                                {
+                                    <td>Çok İyi</td>
+                                }
+                                else if (item.reviewScoreWord == "Good")
+                                {
+                                    <td>İyi</td>
+                                }
+                                else if (item.reviewScoreWord == "Fabulous")
+                                {
+                                    <td>Harika</td>
+                                }
+                                else
+                                {
+                                    <td></td>
+                                }
+
+                            }
+
+                            @*  <td><a href="" type="button" class="btn btn-primary">Detaylar</a></td>*@
+                        </tr>
+                        count = count + 1;
+                    }
+                }
+                
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    $('#checkin').datepicker({
+        format: 'yyyy-mm-dd'
+    });
+    $('#checkout').datepicker({
+        format: 'yyyy-mm-dd'
+    });
+</script>

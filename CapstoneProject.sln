@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CapstoneProject_BusinessLay
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CapstoneProject_DTOLayer", "CapstoneProject_DTOLayer\CapstoneProject_DTOLayer.csproj", "{B47E0DA1-1952-4A43-8936-67498798E45B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapstoneProject_ApiLayer", "CapstoneProject_ApiLayer\CapstoneProject_ApiLayer.csproj", "{EFFCD76E-4A23-4A74-9208-D2CD926EC60A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CapstoneProject_ApiLayer", "CapstoneProject_ApiLayer\CapstoneProject_ApiLayer.csproj", "{EFFCD76E-4A23-4A74-9208-D2CD926EC60A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

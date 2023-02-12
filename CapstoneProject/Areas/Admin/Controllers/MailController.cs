@@ -30,7 +30,7 @@ namespace CapstoneProject.Areas.Admin.Controllers
         public IActionResult Index(MailRequestModel mailRequest)
         {
             MimeMessage mimeMessage = new MimeMessage();
-            MailboxAddress mailboxAddress = new MailboxAddress("Admin", "cnsrc11@gmail.com");
+            MailboxAddress mailboxAddress = new MailboxAddress("Admin", "cnssrc11@gmail.com");
 
             mimeMessage.From.Add(mailboxAddress);
 
@@ -47,7 +47,7 @@ namespace CapstoneProject.Areas.Admin.Controllers
 
             SmtpClient client = new SmtpClient();
             client.Connect("smtp.gmail.com", 587, false);
-            client.Authenticate("cnsrc11@gmail.com", "rvjtklrwwmwfhlin");
+            client.Authenticate("cnssrc11@gmail.com", "iocezmifqhnozczc");
             client.Send(mimeMessage);
 
             MailRequest c = new MailRequest();

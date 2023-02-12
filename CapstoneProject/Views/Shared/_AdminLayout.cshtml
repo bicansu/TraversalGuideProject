@@ -33,12 +33,14 @@
     <link rel="stylesheet" href="~/AdminTemplate/plugins/iCheck/all.css">
     <link rel="stylesheet" href="~/AdminTemplate/bower_components/select2/dist/css/select2.min.css">
     <link rel="stylesheet" href="~/AdminTemplate/bower_components/bootstrap-daterangepicker/daterangepicker.css">
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     <link rel="stylesheet" href="~/AdminTemplate/plugins/timepicker/bootstrap-timepicker.min.css">
     <script src="~/AdminTemplate/bower_components/jquery/dist/jquery.min.js"></script>
 
     <script src="~/AdminTemplate/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="~/AdminTemplate/dist/js/adminlte.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+
 
 
     <link rel="stylesheet" href="~/AdminTemplate/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
@@ -532,7 +534,13 @@
                 }
             });
         } //loadEvents
-        loadEvents();
+</script>
+    @if(ViewData["Title"] == "Etkinlikler")
+    {
+        <script>loadEvents();</script>
+    }
+    <script>
+        
         function eventDuzenleModal(CompanyEventID) {
             $.ajax({
                 type: "POST",

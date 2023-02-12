@@ -29,13 +29,17 @@ namespace CapstoneProject_ApiLayer
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<Context>();
-            services.AddCors();
+            services.AddScoped<ElectricService>();
             services.AddSignalR();
+            services.AddCors();
+          
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CapstoneProject_ApiLayer", Version = "v1" });
             });
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,6 +67,7 @@ namespace CapstoneProject_ApiLayer
             {
                 endpoints.MapControllers();
                 endpoints.MapHub<MyHub>("/MyHub");
+                endpoints.MapHub<ElectricHub>("/ElectricHub");
             });
         }
     }

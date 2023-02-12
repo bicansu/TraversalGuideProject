@@ -13,10 +13,12 @@ namespace CapstoneProject_ApiLayer.Hubs
     public class MyHub : Hub
     {
         private readonly Context _context;
+        private readonly IHubContext<ElectricHub> _hubContext;
 
-        public MyHub(Context context)
+        public MyHub(Context context, IHubContext<ElectricHub> hubContext)
         {
             _context = context;
+            _hubContext = hubContext;
         }
 
         public static List<string> Names { get; set; } = new List<string>();
@@ -98,5 +100,16 @@ namespace CapstoneProject_ApiLayer.Hubs
 
         }
 
+        public IQueryable<Electric> GetList()
+        {
+            return _context.Electrics.AsQueryable();
+        }
+
+        public async Task SaveElectric(Electric electric)
+        {
+            await _context.Electrics.AddAsync(electric);
+            await _context.SaveChangesAsync();
+            await _hubContext.Clients.All.SendAsync("ReceiveElectricList", "data");
+        }
     }
 }

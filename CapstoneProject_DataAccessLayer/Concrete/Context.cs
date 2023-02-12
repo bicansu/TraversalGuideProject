@@ -14,6 +14,7 @@ namespace CapstoneProject_DataAccessLayer.Concrete
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("server=RAMAZANSURUCU; database=DbCapstone; integrated security=true;");
+            //optionsBuilder.UseSqlServer("server=77.245.159.27\\MSSQLSERVER2019; database=DbCapstone;user=AdminCapstoneDB;password=Yk@34ir91");
         }
         public DbSet<About> Abouts { get; set; } 
         public DbSet<AccordingtoWeatherHoliday> AccordingtoWeatherHolidays { get;set; }
