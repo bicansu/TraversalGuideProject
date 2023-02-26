@@ -8,7 +8,7 @@ namespace CapstoneProject_ApiLayer.DataAccessLayer
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=RAMAZANSURUCU; database=DbCapstoneApi; integrated security=true;");
+           optionsBuilder.UseSqlServer("server=RAMAZANSURUCU; database=DbCapstoneApi; integrated security=true;");
             //optionsBuilder.UseSqlServer("server=77.245.159.27\\MSSQLSERVER2019; database=DbCapstoneApi;user=AdminCapstoneApiDB;password=0y02v6@bD");
         }
 

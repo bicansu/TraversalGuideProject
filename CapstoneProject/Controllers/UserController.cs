@@ -52,7 +52,7 @@ namespace CapstoneProject.Controllers
             var httpClient = new HttpClient();
             var jsonSubscribe = JsonConvert.SerializeObject(p);
             StringContent content = new StringContent(jsonSubscribe, Encoding.UTF8, "application/json");
-            var responseMessage = await httpClient.PostAsync("https://localhost:44313/api/Subsc", content);
+            var responseMessage = await httpClient.PostAsync("http://cansusurucu.xyz/api/Subsc", content);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");

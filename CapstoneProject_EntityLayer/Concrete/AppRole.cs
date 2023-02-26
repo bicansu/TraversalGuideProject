@@ -13,4 +13,4 @@ namespace CapstoneProject_EntityLayer.Concrete
         public int RoleId { get; set; }
     }
 }
-//Özelleştirmeye gidildiğin kullanılacak alandır
+ 

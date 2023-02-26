@@ -107,7 +107,7 @@ namespace CapstoneProject
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseAuthentication();
 
@@ -119,7 +119,7 @@ namespace CapstoneProject
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=User}/{action=Index}/{id?}");
             });
 
             app.UseEndpoints(endpoints =>

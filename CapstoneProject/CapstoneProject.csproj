@@ -7,7 +7,9 @@
   <PropertyGroup>
     <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
   </PropertyGroup>
-
+  <PropertyGroup>
+    <EnvironmentName>Development</EnvironmentName>
+  </PropertyGroup>
   <ItemGroup>
     <Content Include="wwwroot\AdminTemplate\bower_components\bootstrap-colorpicker\.bower.json" />
     <Content Include="wwwroot\AdminTemplate\bower_components\bootstrap-colorpicker\composer.json" />

@@ -10,9 +10,11 @@ using System;
 using System.Threading.Tasks;
 using CapstoneProject_ApiLayer.Models;
 using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CapstoneProject.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminTourInformController : Controller
     {
         private readonly ITourInformaService _tourInformService;

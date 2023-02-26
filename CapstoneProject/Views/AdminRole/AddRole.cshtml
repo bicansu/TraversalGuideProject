@@ -1,0 +1,25 @@
+﻿@model AdminRoleViewModel
+@{
+    ViewData["Title"] = "Rol Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title">Yeni Rol Ekle</h3>
+    </div>
+    <form method="post" role="form" >
+        <input type="hidden" value="false" />
+        <div class="box-body">
+            <div class="form-group">
+                <label>Rol Adı</label>
+                <input type="text" class="form-control" asp-for="RoleName" placeholder="Başlık">
+                <span asp-validation-for="RoleName" class="text-danger"></span>
+            </div> 
+        </div>
+        <div class="box-footer">
+            <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Kaydet</button>
+        </div>
+    </form>
+</div>
+

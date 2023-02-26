@@ -1,9 +1,11 @@
 ﻿using CapstoneProject_DataAccessLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
 namespace CapstoneProject.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminHomeController : Controller
     {
         

@@ -1,10 +1,12 @@
 ﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.IO;
 
 namespace CapstoneProject.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminPDFReportController : Controller
     {
         public IActionResult Index()

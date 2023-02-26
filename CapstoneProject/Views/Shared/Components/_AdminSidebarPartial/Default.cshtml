@@ -35,203 +35,52 @@
             var mailActive = "";
             var SubActive = "";
             var etkinlikActive = "";
+            var roleActive = "";
             switch (ViewData["Title"])
             {
                 case "Anasayfa":
-                     homeActive = "active";
-                     aboutActive = "";
-                     bannerActive = "";
-                     contactActive = "";
-                     infoActive = "";
-                     tourActive = "";
-                     travelAgencyActive = "";
-                     accountActive = "";
-                     excelActive = "";
-                     pdfActive = "";
-                     mailActive = "";
-                     SubActive = "";
-                     etkinlikActive = "";
+                     homeActive = "active"; 
 
                     break;
                 case "Hakkımızda":
                      homeActive = "";
-                     aboutActive = "active";
-                     bannerActive = ""; 
-                     contactActive = "";
-                     infoActive = "";
-                     tourActive = "";
-                     travelAgencyActive = "";
-                     accountActive = "";
-                     excelActive = "";
-                     pdfActive = "";
-                     mailActive = "";
-                     SubActive = "";
-                    etkinlikActive = "";
+                     aboutActive = "active"; 
                     break;
-                case "Banner":
-                     homeActive = "";
-                     aboutActive = "";
-                     bannerActive = "active";
-                     contactActive = "";
-                     infoActive = "";
-                     tourActive = "";
-                     travelAgencyActive = "";
-                     accountActive = "";
-                     excelActive = "";
-                     pdfActive = "";
-                     mailActive = "";
-                     SubActive = "";
-                    etkinlikActive = "";
+                case "Banner": 
+                     bannerActive = "active"; 
                     break;
-                case "İletişim":
-                     homeActive = "";
-                     aboutActive = "";
-                     bannerActive = "";
-                     contactActive = "active";
-                     infoActive = "";
-                     tourActive = "";
-                     travelAgencyActive = "";
-                     accountActive = "";
-                     excelActive = "";
-                     pdfActive = "";
-                     mailActive = "";
-                     SubActive = "";
-                    etkinlikActive = "";
+                case "İletişim": 
+                     contactActive = "active"; 
                     break;
-                case "Bilgi":
-                     homeActive = "";
-                     aboutActive = "";
-                     bannerActive = "";
-                     contactActive = "";
-                     infoActive = "active";
-                     tourActive = "";
-                     travelAgencyActive = "";
-                     accountActive = "";
-                     excelActive = "";
-                     pdfActive = "";
-                     mailActive = "";
-                     SubActive = "";
-                    etkinlikActive = "";
+                case "Bilgi": 
+                     infoActive = "active"; 
                     break;
-                case "Tur Bilgisi":
-                     homeActive = "";
-                     aboutActive = "";
-                     bannerActive = "";
-                     contactActive = "";
-                     infoActive = "";
-                     tourActive = "active";
-                     travelAgencyActive = "";
-                     accountActive = "";
-                     excelActive = "";
-                     pdfActive = "";
-                     mailActive = "";
-                     SubActive = "";
-                    etkinlikActive = "";
+                case "Tur Bilgisi": 
+                     tourActive = "active"; 
                     break;
-                case "Seyahat Acentesi":
-                     homeActive = "";
-                     aboutActive = "";
-                     bannerActive = ""; 
-                     contactActive = "";
-                     infoActive = "";
-                     tourActive = "";
-                     travelAgencyActive = "active";
-                     accountActive = "";
-                     excelActive = "";
-                     pdfActive = "";
-                     mailActive = "";
-                     SubActive = "";
-                    etkinlikActive = "";
+                case "Seyahat Acentesi": 
+                     travelAgencyActive = "active"; 
                     break;
-                case "Kullanıcılar":
-                     homeActive = "";
-                     aboutActive = "";
-                     bannerActive = ""; 
-                     contactActive = "";
-                     infoActive = "";
-                     tourActive = "";
-                     travelAgencyActive = "";
-                     accountActive = "active";
-                     excelActive = "";
-                     pdfActive = "";
-                     mailActive = "";
-                     SubActive = "";
-                    etkinlikActive = "";
+                case "Kullanıcılar": 
+                     accountActive = "active"; 
                     break;
-                case "Excel Raporlar":
-                     homeActive = "";
-                     aboutActive = "";
-                     bannerActive = "";
-                     contactActive = "";
-                     infoActive = "";
-                     tourActive = "";
-                     travelAgencyActive = "";
-                     accountActive = "";
-                     excelActive = "active";
-                     pdfActive = "";
-                     mailActive = "";
-                     SubActive = "";
-                    etkinlikActive = "";
+                case "Excel Raporlar": 
+                     excelActive = "active"; 
                     break;
-                case "Pdf Raporlar":
-                     homeActive = "";
-                     aboutActive = "";
-                     bannerActive = "";
-                     contactActive = "";
-                     infoActive = "";
-                     tourActive = "";
-                     travelAgencyActive = "";
-                     accountActive = "";
-                     excelActive = "";
-                     pdfActive = "active";
-                     mailActive = "";
-                     SubActive = "";
-                    etkinlikActive = "";
+                case "Pdf Raporlar": 
+                     pdfActive = "active"; 
                     break;
-                case "Mail Gönder":
-                     homeActive = "";
-                     aboutActive = "";
-                     bannerActive = "";
-                     contactActive = "";
-                     infoActive = "";
-                     tourActive = "";
-                     travelAgencyActive = "";
-                     accountActive = "";
-                     excelActive = "";
-                     pdfActive = "";
-                     mailActive = "active";
-                     SubActive = "";
-                    etkinlikActive = "";
+                case "Mail Gönder": 
+                     mailActive = "active"; 
                     break;
-                case "Aboneler":
-                     homeActive = "";
-                     aboutActive = "";
-                     bannerActive = "";
-                     contactActive = "";
-                     infoActive = "";
-                     tourActive = "";
-                     travelAgencyActive = "";
-                     accountActive = "";
-                     excelActive = "";
-                     pdfActive = "";
-                     mailActive = "";
-                     SubActive = "active";
-                    etkinlikActive = "";
+                case "Aboneler": 
+                     SubActive = "active"; 
                     break;
-                case "Etkinlikler":
-                    homeActive = "";
-                    aboutActive = "";
-                    bannerActive = "";
-                    contactActive = "";
-                    infoActive = "";
-                    tourActive = "";
-                    travelAgencyActive = "";
-                    accountActive = "";
-                    excelActive = "";
-                    pdfActive = "";
-                    mailActive = "";
-                    SubActive = "";
+                case "Etkinlikler": 
                     etkinlikActive = "active";
+                    break;
+                case "Roller":
+                    roleActive = "active";
                     break;
             }
         }
@@ -245,6 +94,11 @@
             <li class="@etkinlikActive">
                 <a href="/AdminCalendar/Index/">
                     <i class="fa fa-calendar"></i> <span>ETKİNLİKLER</span>
+                </a>
+            </li>
+            <li class="@roleActive">
+                <a href="/AdminRole/Index/">
+                    <i class="fa fa-gg"></i> <span>ROLLER</span>
                 </a>
             </li>
             <li class="@etkinlikActive">

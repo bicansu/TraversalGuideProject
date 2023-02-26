@@ -11,7 +11,7 @@ using System.Linq;
 
 namespace CapstoneProject.Controllers
 {
-    
+    [Authorize(Roles = "Admin")]
     public class AdminExcelController : Controller
     {
         private readonly IExcelService _excelService;

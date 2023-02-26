@@ -1,0 +1,44 @@
+﻿@model List<RoleUsersViewModel>
+@{
+    ViewData["Title"] = "Rol Kullanıcıları";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <a href="/AdminRole/Index" class="btn btn-app"><i class="fa fa-arrow-left"></i> Geri Dön</a>
+    </div>
+    <div class="box-header with-border">
+        <h3 class="box-title">Rol Kullanıcıları</h3>&emsp; 
+    </div>
+
+    <div class="box-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>#</th> 
+                    <th>Rol Adı</th>
+                    <th>Adı</th>
+                    <th>Soyadı</th>
+                    <th>Kullanıcı Adı</th>
+                    <th>İşlemler</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.UserId</td>
+                        <td>@item.RoleName</td>
+                        <td>@item.Name</td>
+                        <td>@item.Surname</td>
+                        <td>@item.UserName</td>
+                        <td> 
+                            <a href="/AdminRole/DeleteUserRole/@item.UserId" class="btn btn-danger" Title="Rol Sil"><i class="fa fa-trash"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

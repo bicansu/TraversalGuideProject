@@ -92,6 +92,8 @@ namespace CapstoneProject.Controllers
                     if (result.Succeeded)
                     {
                         SendEmail(p.Mail, appUser.MailCode);
+                        var user = _userManager.Users.FirstOrDefault(x => x.Id == appUser.Id);
+                        await _userManager.AddToRoleAsync(user,"Admin");
 
                         //return RedirectToAction("SignIn");
                         return RedirectToAction("EmailConfirmed", "AdminLogin");
@@ -131,16 +133,17 @@ namespace CapstoneProject.Controllers
                 var result = await _signInManager.PasswordSignInAsync(p.username, p.password, false, true);
                 if (result.Succeeded)
                 {
-				/*	var user = _userManager.Users.FirstOrDefault(x => x.UserName == p.username);
-					var role = await _userManager.GetRolesAsync(user);*/
-                  /*  if (role.Contains("Admin"))
-                    {*/
+                    
+					var user = _userManager.Users.FirstOrDefault(x => x.UserName == p.username);
+					var role = await _userManager.GetRolesAsync(user);
+                    if (role.Contains("Admin"))
+                    {
                         return RedirectToAction("Index", "AdminHome");
-     //               }
-					//else
-					//{
-						//return RedirectToAction("SignIn", "AdminLogin");
-					//}
+                     }
+					else
+					{
+						return RedirectToAction("SignIn", "AdminLogin");
+					}
                      
                 }
                 else

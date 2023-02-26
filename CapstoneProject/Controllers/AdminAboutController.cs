@@ -12,9 +12,11 @@ using DocumentFormat.OpenXml.Spreadsheet;
 using CapstoneProject_DataAccessLayer.Concrete;
 using System.Linq; 
 using CapstoneProject_EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CapstoneProject.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminAboutController : Controller
     {
         private readonly IAboutService _aboutService;

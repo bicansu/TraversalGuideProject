@@ -7,6 +7,7 @@ using DocumentFormat.OpenXml.Office2010.Excel;
 using DocumentFormat.OpenXml.Office2010.ExcelAc;
 using DocumentFormat.OpenXml.Office2021.DocumentTasks;
 using MailKit.Net.Smtp;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.Rename;
 using MimeKit;
@@ -19,6 +20,7 @@ using System.Threading.Tasks;
 
 namespace CapstoneProject.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminCalendarController : Controller
     {
         private readonly ICompanyEventService _companyEventService;

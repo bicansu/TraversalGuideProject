@@ -1,5 +1,6 @@
 using CapstoneProject_ApiLayer.DataAccessLayer;
 using CapstoneProject_ApiLayer.Hubs;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -8,10 +9,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace CapstoneProject_ApiLayer
@@ -39,7 +42,19 @@ namespace CapstoneProject_ApiLayer
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CapstoneProject_ApiLayer", Version = "v1" });
             });
 
-
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(x =>
+            {
+                x.RequireHttpsMetadata = false;
+                x.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                {
+                    ValidIssuer = "http://localhost",
+                    ValidAudience = "http://localhost",
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("aspnetcoreprojekampi")),
+                    ValidateIssuerSigningKey = true,
+                    ValidateLifetime = true,
+                    ClockSkew = TimeSpan.Zero
+                };
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,7 +67,7 @@ namespace CapstoneProject_ApiLayer
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CapstoneProject_ApiLayer v1"));
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
             app.UseCors(x => x

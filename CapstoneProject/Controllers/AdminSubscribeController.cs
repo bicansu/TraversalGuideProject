@@ -1,6 +1,7 @@
 ﻿using CapstoneProject_ApiLayer.DataAccessLayer;
 using CapstoneProject_EntityLayer.Concrete;
 using DocumentFormat.OpenXml.Office2010.Excel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace CapstoneProject.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminSubscribeController : Controller
     {
         public async Task<IActionResult> Index()
@@ -69,7 +71,7 @@ namespace CapstoneProject.Controllers
         public async Task<IActionResult> DeleteSubscribe(int id)
         {
             var httpClient = new HttpClient();
-            var responseMessage = await httpClient.DeleteAsync("https://localhost:44313/api/Subsc/" + id);
+            var responseMessage = await httpClient.DeleteAsync("https://localhost:44313/api/Subsc" + id);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");

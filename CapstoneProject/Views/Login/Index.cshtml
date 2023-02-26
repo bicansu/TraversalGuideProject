@@ -1,0 +1,48 @@
+﻿@model CapstoneProject.Models.SignInViewModel
+@{
+    Layout = null;
+}
+
+<link href="~/UserLoginTemp/loginstyles.css" rel="stylesheet" />  
+<script src="~/UserLoginTemp/jquery/dist/jquery.min.js"></script>
+<script src="~/UserLoginTemp/loginscripts.js"></script> 
+<div class="container" id="container">
+	<div class="form-container sign-up-container" id="SignUpDiv">
+		<form method="POST" asp-action="SignUp" asp-controller="Login">
+			<h1>Üye Ol</h1>  
+			<input type="text" placeholder="Adınızı giriniz." name="Name" />
+			<input type="text" placeholder="Soyadınızı giriniz." name="Surname" />
+			<input type="text" placeholder="Kullanıcı adınızı giriniz." name="Username" /> 
+			<input type="email" placeholder="Mail adresinizi giriniz." name="Mail" />
+			<input type="password" placeholder="Şifrenizi giriniz." name="Password"/>
+			<input type="password" placeholder="Şifrenizi tekrar giriniz" name="ConfirmPassword" />
+			<button style="cursor:pointer;" type="submit">Kaydet</button>
+		</form>
+	</div>
+	<div class="form-container sign-in-container" id="SignInDiv">
+		<form method="POST" >
+			<h1>Giriş Yap </h1>
+			<input type="email" placeholder="Email adresinizi giriniz." asp-for="email" />
+			<span asp-validation-for="email"></span>
+			<input type="password" placeholder="Şifrenizi giriniz." asp-for="password" />
+			<span asp-validation-for="password"></span>
+			<a href="/Login/ForgotPassword">Şifreni mi unuttun?</a>
+			<button style="cursor:pointer;" type="submit">Giriş</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left" id="leftPanel">
+				<h1>Hoşgeldiniz!</h1>
+				<p>Lütfen üye girişi yapınız.</p>
+				<button class="ghost" style="cursor:pointer;" onclick="OpenOtherDiv('rightPanel')" id="signIn">Giriş Yap</button>
+			</div>
+			<div class="overlay-panel overlay-right" id="rightPanel">
+				<h1>Merhaba!</h1>
+				<p>Kişisel bilgileri giriniz ve üye olunuz.</p>
+				<button class="ghost" style="cursor:pointer;" onclick="OpenOtherDiv('leftPanel')" id="signUp">Üye Ol</button>
+			</div>
+		</div>
+	</div>
+</div>
+ 

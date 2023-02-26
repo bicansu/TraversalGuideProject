@@ -8,9 +8,11 @@ using System.IO;
 using System;
 using System.Linq;
 using CapstoneProject.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CapstoneProject.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminBannerController : Controller
     {
         private readonly IBannerService _bannerService;

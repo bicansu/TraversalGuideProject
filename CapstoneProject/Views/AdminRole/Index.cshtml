@@ -1,0 +1,38 @@
+﻿@model List<AppRole>
+@{
+    ViewData["Title"] = "Roller";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title">Roller</h3>&emsp;
+        <a class="btn btn-success" href="/AdminRole/AddRole/"><i class="fa fa-plus"></i> Yeni Rol Ekle</a>
+    </div>
+
+    <div class="box-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Rol Adı</th>
+                    <th>İşlemler</th> 
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>  
+                        <td>@item.Name</td>  
+                        <td> 
+                            <a href="/AdminRole/GetRoleUsers/@item.Id" class="btn btn-default" Title="Rol Kullanıcıları"><i class="fa fa-users"></i></a> 
+                            <a href="/AdminRole/DeleteRole/@item.Id" class="btn btn-danger" Title="Rol Sil"><i class="fa fa-trash"></i></a> 
+                        </td> 
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

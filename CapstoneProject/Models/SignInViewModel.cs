@@ -4,7 +4,7 @@ namespace CapstoneProject.Models
 {
     public class SignInViewModel
     {
-        [Required(ErrorMessage = "Lütfen mail adresinizi giriniz")]
+        [Required(ErrorMessage = "Lütfen mail adresinizi giriniz")] 
         public string email { get; set; }
 
         [Required(ErrorMessage = "Lütfen şifrenizi giriniz")]

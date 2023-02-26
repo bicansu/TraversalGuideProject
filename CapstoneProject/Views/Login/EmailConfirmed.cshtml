@@ -4,50 +4,27 @@
     ViewData["Title"] = "Mail Onayla";
     Layout = null;
 }
+<style>
+	.container{
+		background: linear-gradient(to right, #FF4B2B, #FF416C);
+	}
+</style>
+
+<link href="~/UserLoginTemp/loginstyles.css" rel="stylesheet" />
+<script src="~/UserLoginTemp/jquery/dist/jquery.min.js"></script>
+<script src="~/UserLoginTemp/loginscripts.js"></script>
+<div class="container" id="container">
+	<div style="width:100%;" id="SignUpDiv">
+		<form method="POST" action="/Login/EmailConfirmedSave">
+			<h1>Email Onayı</h1>
+			<input type="text" placeholder="Email giriniz." name="Email" />
+			<input type="text" placeholder="Kodu giriniz." name="MailCode" />
+			<button type="submit"><i class="fa fa-save"></i> Kaydet</button>
+		</form>
+	</div>
+</div>
+
+<script>
+	$("#container").addClass("right-panel-active");
+</script>
  
-     
-     
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Seyahat Sitesi Giriş & Kayıt Ol Ekranı</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css'>
-	<link rel="stylesheet" href="~/UserLoginTemplate/style.css">
-
-</head>
-<body>
-
-
-			<form method="post" action="/Login/EmailConfirmedSave">
-			<p class="fieldset">
-				<label class="image-replace username"> Mail Adresiniz</label>
-				<input type="text" asp-for="Email"   class="full-width has-padding has-border" />
-					 
-				</p>
-			<p class="fieldset">
-				<label class="image-replace username">Mail Onay Kodu</label>
-				<input type="text" asp-for="MailCode" class="full-width has-padding has-border" />
-				 
-				</p>
-				<div class="form-group">
-					<button type="submit" class="btn btn-default"><i class="fa fa-check"></i> ONAYLA</button>
-				</div>
-			</form> 
-		 
-				 
-
-	 
-	<!-- partial -->
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-	<script src="~/UserLoginTemplate/script.js"></script>
-	<script>
-		$("#signup").css("display","block");
-		$(".user-modal-container").css("display", "block");
-		$(".user-modal").css("display", "block");
-		$(".user-modal").modal("Show");
-		
-	</script>
-</body>
-</html>
